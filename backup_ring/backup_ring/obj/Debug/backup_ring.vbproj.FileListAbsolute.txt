@@ -1,0 +1,12 @@
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\bin\Debug\backup_ring.exe.config
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\bin\Debug\backup_ring.exe
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\bin\Debug\backup_ring.pdb
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\bin\Debug\backup_ring.xml
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\obj\Debug\backup_ring.vbprojAssemblyReference.cache
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\obj\Debug\backup_ring.Form1.resources
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\obj\Debug\backup_ring.Resources.resources
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\obj\Debug\backup_ring.vbproj.GenerateResource.cache
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\obj\Debug\backup_ring.vbproj.CoreCompileInputs.cache
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\obj\Debug\backup_ring.exe
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\obj\Debug\backup_ring.xml
+C:\Users\minso\OneDrive\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\obj\Debug\backup_ring.pdb
