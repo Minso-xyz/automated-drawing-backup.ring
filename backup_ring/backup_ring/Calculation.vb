@@ -1,7 +1,11 @@
 ﻿Imports Microsoft.VisualBasic
-Imports 
+Imports Form1.vb
 
 Public Class Class1
-    Dim Fascia As Double
-    Fascia = 
+    Dim fascia As Double
+    Dim medio As Double
+    fascia = {(externalDiameter)-(internalDiameter)}/2
+    medio = {(externalDiameter)+(internalDiameter)}/2
+
+
 End Class

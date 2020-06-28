@@ -12,12 +12,17 @@
         externalDiameter = textbox_externalDiameter.Text
         height = textbox_height.Text
 
+        Dim fascia As Double = (externalDiameter - internalDiameter) * 0.5
+        Dim medio As Double = (externalDiameter + internalDiameter) * 0.5
+
         'Print the values'
         label_test.Text = "ID is " & internalDiameter & ", OD is " & externalDiameter & ", and H is " & height & "."
         label_test2.Text = "Split type is " & splitType & "."
+        label_temp.Text = "Fascia is " & fascia & ". Medio is " & medio & "."
 
     End Sub
 
+    'Endless/Split Boolean'
     Private Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
         If radiobutton_endless.Checked = True Then
             endless = True
