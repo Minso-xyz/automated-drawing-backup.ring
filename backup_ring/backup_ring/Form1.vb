@@ -21,17 +21,13 @@
     Private Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
         If radiobutton_endless.Checked = True Then
             endless = True
-        End If
-
-        If radiobutton_split.Checked = True Then
-            Split = True
-        End If
-
-        If endless = True Then
             splitType = "Endless"
-        ElseIf split = True Then
+        End If
+    End Sub
+    Private Sub radiobutton_split_Click(sender As Object, e As EventArgs) Handles radiobutton_split.Click
+        If radiobutton_split.Checked = True Then
+            split = True
             splitType = "Double Splits"
         End If
     End Sub
-
 End Class
