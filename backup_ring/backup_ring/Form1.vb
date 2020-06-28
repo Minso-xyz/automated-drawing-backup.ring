@@ -1,14 +1,37 @@
 ﻿Public Class Form1
-    Private Sub button_ok_Click(sender As Object, e As EventArgs) Handles button_ok.Click
-        Dim internalDiameter As Double
-        Dim externalDiameter As Double
-        Dim height As Double
+    Dim internalDiameter As Double
+    Dim externalDiameter As Double
+    Dim height As Double
+    Dim endless As Boolean
+    Dim split As Boolean
+    Dim splitType As String
 
+    Private Sub button_ok_Click(sender As Object, e As EventArgs) Handles button_ok.Click
+        'Get the values from textbox and store as variable (Double)'
         internalDiameter = textbox_internalDiameter.Text
         externalDiameter = textbox_externalDiameter.Text
         height = textbox_height.Text
 
+        'Print the values'
         label_test.Text = "ID is " & internalDiameter & ", OD is " & externalDiameter & ", and H is " & height & "."
+        label_test2.Text = "Split type is " & splitType & "."
 
     End Sub
+
+    Private Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
+        If radiobutton_endless.Checked = True Then
+            endless = True
+        End If
+
+        If radiobutton_split.Checked = True Then
+            Split = True
+        End If
+
+        If endless = True Then
+            splitType = "Endless"
+        ElseIf split = True Then
+            splitType = "Double Splits"
+        End If
+    End Sub
+
 End Class

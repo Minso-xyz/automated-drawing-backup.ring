@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.textbox_internalDiameter = New System.Windows.Forms.TextBox()
         Me.label_internalDiameter = New System.Windows.Forms.Label()
@@ -33,6 +33,9 @@ Partial Class Form1
         Me.textbox_height = New System.Windows.Forms.TextBox()
         Me.button_ok = New System.Windows.Forms.Button()
         Me.label_test = New System.Windows.Forms.Label()
+        Me.radiobutton_endless = New System.Windows.Forms.RadioButton()
+        Me.radiobutton_split = New System.Windows.Forms.RadioButton()
+        Me.label_test2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'textbox_internalDiameter
@@ -112,7 +115,7 @@ Partial Class Form1
         '
         'button_ok
         '
-        Me.button_ok.Location = New System.Drawing.Point(307, 123)
+        Me.button_ok.Location = New System.Drawing.Point(307, 165)
         Me.button_ok.Name = "button_ok"
         Me.button_ok.Size = New System.Drawing.Size(75, 23)
         Me.button_ok.TabIndex = 9
@@ -128,13 +131,47 @@ Partial Class Form1
         Me.label_test.TabIndex = 10
         Me.label_test.Tag = ""
         '
+        'radiobutton_endless
+        '
+        Me.radiobutton_endless.AutoSize = True
+        Me.radiobutton_endless.Location = New System.Drawing.Point(22, 188)
+        Me.radiobutton_endless.Name = "radiobutton_endless"
+        Me.radiobutton_endless.Size = New System.Drawing.Size(79, 21)
+        Me.radiobutton_endless.TabIndex = 11
+        Me.radiobutton_endless.TabStop = True
+        Me.radiobutton_endless.Text = "Endless"
+        Me.radiobutton_endless.UseVisualStyleBackColor = True
+        '
+        'radiobutton_split
+        '
+        Me.radiobutton_split.AutoSize = True
+        Me.radiobutton_split.Location = New System.Drawing.Point(22, 213)
+        Me.radiobutton_split.Name = "radiobutton_split"
+        Me.radiobutton_split.Size = New System.Drawing.Size(110, 21)
+        Me.radiobutton_split.TabIndex = 12
+        Me.radiobutton_split.TabStop = True
+        Me.radiobutton_split.Text = "Double splits"
+        Me.radiobutton_split.UseVisualStyleBackColor = True
+        '
+        'label_test2
+        '
+        Me.label_test2.AutoSize = True
+        Me.label_test2.Location = New System.Drawing.Point(211, 215)
+        Me.label_test2.Name = "label_test2"
+        Me.label_test2.Size = New System.Drawing.Size(12, 17)
+        Me.label_test2.TabIndex = 13
+        Me.label_test2.Text = "."
+        '
         'Form1
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.None
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(407, 168)
+        Me.ClientSize = New System.Drawing.Size(407, 261)
+        Me.Controls.Add(Me.label_test2)
+        Me.Controls.Add(Me.radiobutton_split)
+        Me.Controls.Add(Me.radiobutton_endless)
         Me.Controls.Add(Me.label_test)
         Me.Controls.Add(Me.button_ok)
         Me.Controls.Add(Me.textbox_height)
@@ -164,4 +201,7 @@ Partial Class Form1
     Friend WithEvents textbox_height As TextBox
     Friend WithEvents button_ok As Button
     Friend WithEvents label_test As Label
+    Friend WithEvents radiobutton_endless As RadioButton
+    Friend WithEvents radiobutton_split As RadioButton
+    Friend WithEvents label_test2 As Label
 End Class
