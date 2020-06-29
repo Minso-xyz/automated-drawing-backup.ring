@@ -32,7 +32,7 @@
     Private Sub radiobutton_split_Click(sender As Object, e As EventArgs) Handles radiobutton_split.Click
         If radiobutton_split.Checked = True Then
             split = True
-            splitType = "Double Splits"
+            splitType = "Double Split"
         End If
     End Sub
 End Class
