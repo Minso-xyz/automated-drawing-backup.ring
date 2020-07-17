@@ -42,7 +42,7 @@ Partial Class Form1
         'textbox_internalDiameter
         '
         Me.textbox_internalDiameter.Location = New System.Drawing.Point(11, 64)
-        Me.textbox_internalDiameter.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.textbox_internalDiameter.Margin = New System.Windows.Forms.Padding(2)
         Me.textbox_internalDiameter.Name = "textbox_internalDiameter"
         Me.textbox_internalDiameter.Size = New System.Drawing.Size(84, 20)
         Me.textbox_internalDiameter.TabIndex = 0
@@ -80,7 +80,7 @@ Partial Class Form1
         'textbox_externalDiameter
         '
         Me.textbox_externalDiameter.Location = New System.Drawing.Point(110, 64)
-        Me.textbox_externalDiameter.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.textbox_externalDiameter.Margin = New System.Windows.Forms.Padding(2)
         Me.textbox_externalDiameter.Name = "textbox_externalDiameter"
         Me.textbox_externalDiameter.Size = New System.Drawing.Size(85, 20)
         Me.textbox_externalDiameter.TabIndex = 4
@@ -118,7 +118,7 @@ Partial Class Form1
         'textbox_height
         '
         Me.textbox_height.Location = New System.Drawing.Point(213, 64)
-        Me.textbox_height.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.textbox_height.Margin = New System.Windows.Forms.Padding(2)
         Me.textbox_height.Name = "textbox_height"
         Me.textbox_height.Size = New System.Drawing.Size(74, 20)
         Me.textbox_height.TabIndex = 8
@@ -126,7 +126,7 @@ Partial Class Form1
         'button_ok
         '
         Me.button_ok.Location = New System.Drawing.Point(230, 123)
-        Me.button_ok.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.button_ok.Margin = New System.Windows.Forms.Padding(2)
         Me.button_ok.Name = "button_ok"
         Me.button_ok.Size = New System.Drawing.Size(56, 19)
         Me.button_ok.TabIndex = 9
@@ -148,7 +148,7 @@ Partial Class Form1
         '
         Me.radiobutton_endless.AutoSize = True
         Me.radiobutton_endless.Location = New System.Drawing.Point(11, 101)
-        Me.radiobutton_endless.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.radiobutton_endless.Margin = New System.Windows.Forms.Padding(2)
         Me.radiobutton_endless.Name = "radiobutton_endless"
         Me.radiobutton_endless.Size = New System.Drawing.Size(62, 17)
         Me.radiobutton_endless.TabIndex = 11
@@ -160,7 +160,7 @@ Partial Class Form1
         '
         Me.radiobutton_split.AutoSize = True
         Me.radiobutton_split.Location = New System.Drawing.Point(11, 123)
-        Me.radiobutton_split.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.radiobutton_split.Margin = New System.Windows.Forms.Padding(2)
         Me.radiobutton_split.Name = "radiobutton_split"
         Me.radiobutton_split.Size = New System.Drawing.Size(85, 17)
         Me.radiobutton_split.TabIndex = 12
@@ -210,7 +210,7 @@ Partial Class Form1
         Me.Controls.Add(Me.label_first)
         Me.Controls.Add(Me.label_internalDiameter)
         Me.Controls.Add(Me.textbox_internalDiameter)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Back-up ring creator"
         Me.ResumeLayout(False)

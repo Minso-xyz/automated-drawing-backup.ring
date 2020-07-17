@@ -1,10 +1,13 @@
-﻿Public Class Form1
+﻿Imports Inventor
+
+Public Class Form1
     Dim internalDiameter As Double
     Dim externalDiameter As Double
     Dim height As Double
     Dim endless As Boolean
     Dim split As Boolean
     Dim splitType As String
+
 
     Private Sub button_ok_Click(sender As Object, e As EventArgs) Handles button_ok.Click
         'Get the values from textbox and store as variable (Double)'
@@ -22,17 +25,37 @@
 
     End Sub
 
-    'Endless/Split Boolean'
+    'Endless Boolean'
     Private Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
         If radiobutton_endless.Checked = True Then
             endless = True
             splitType = "Endless"
         End If
     End Sub
+
+    'Double splits Boolean'
     Private Sub radiobutton_split_Click(sender As Object, e As EventArgs) Handles radiobutton_split.Click
         If radiobutton_split.Checked = True Then
             split = True
             splitType = "Double Split"
         End If
     End Sub
+
 End Class
+
+Public Sub SetParameter()
+    'Get the Parameters object. Assume a part or assembly document is active.'
+    Dim oParameters As Parameters
+    oParameters = ThisApplication.ActiveDocument.ComponentDefinition.Parameters
+
+    'Get the parameter named "Length"'
+    Dim oLengthParam As Parameter
+    oLengthParam = oParameters.Item("Length")
+
+    'Ghange the equation of the parameter.'
+    oLengthParam.Experession = "3.5 mm"
+
+    'Update the document.'
+    ThisApplication.ActiveDocument.Update
+
+    End Sub
