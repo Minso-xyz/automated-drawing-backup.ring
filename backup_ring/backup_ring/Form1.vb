@@ -8,6 +8,9 @@ Public Class Form1
     Dim split As Boolean
     Dim splitType As String
 
+    Dim partDoc As Inventor.PartDocument
+    Dim param As Inventor.Parameter
+
 
     Private Sub button_ok_Click(sender As Object, e As EventArgs) Handles button_ok.Click
         'Get the Inventor Application object.
@@ -30,6 +33,13 @@ Public Class Form1
         label_test.Text = "ID is " & internalDiameter & ", OD is " & externalDiameter & ", and H is " & height & "."
         label_test2.Text = "Split type is " & splitType & "."
         label_temp.Text = "Fascia is " & fascia & ". Medio is " & medio & "."
+
+        'Get the Parameters collection.
+        Dim params As Inventor.Parameters
+        params = partDoc.ComponentDefinition.Parameters
+
+        'Assign the Parameter using its name
+        params.Item("fascia_parameter") = fascia
 
     End Sub
 
