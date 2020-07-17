@@ -10,6 +10,14 @@ Public Class Form1
 
 
     Private Sub button_ok_Click(sender As Object, e As EventArgs) Handles button_ok.Click
+        'Get the Inventor Application object.
+        Dim invApp As Inventor.Application
+        invApp = GetObject(, "Inventor.Application")
+
+        'Get the active document.
+        Dim doc As Inventor.Document
+        doc = invApp.ActiveDocument
+
         'Get the values from textbox and store as variable (Double)'
         internalDiameter = textbox_internalDiameter.Text
         externalDiameter = textbox_externalDiameter.Text
@@ -40,22 +48,6 @@ Public Class Form1
             splitType = "Double Split"
         End If
     End Sub
+   
 
 End Class
-
-Public Sub SetParameter()
-    'Get the Parameters object. Assume a part or assembly document is active.'
-    Dim oParameters As Parameters
-    oParameters = ThisApplication.ActiveDocument.ComponentDefinition.Parameters
-
-    'Get the parameter named "Length"'
-    Dim oLengthParam As Parameter
-    oLengthParam = oParameters.Item("Length")
-
-    'Ghange the equation of the parameter.'
-    oLengthParam.Experession = "3.5 mm"
-
-    'Update the document.'
-    ThisApplication.ActiveDocument.Update
-
-    End Sub
