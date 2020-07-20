@@ -85,11 +85,7 @@ Public Class Form1
         invApp.ActiveDocument.Update
 
         'Save the document with the assigned name (drawingNumber).'
-        Dim oDoc As PartDocument
-        partDoc = invApp.Documents.Add _
-        (DocumentTypeEnum.kPartDocumentObject)
-        partDoc.SaveAs("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\" + drawingNumber + ".ipt", False)
-
+        invApp.ActiveDocument.SaveAs("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\" + drawingNumber + ".ipt", False)
 
     End Sub
 
