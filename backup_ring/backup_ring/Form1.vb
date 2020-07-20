@@ -7,17 +7,12 @@ Public Class Form1
     Dim endless As Boolean
     Dim split As Boolean
     Dim splitType As String
+
     Dim drawingNumber As String
 
     Dim partDoc As Inventor.PartDocument
     Dim param As Inventor.Parameter
 
-
-    'Open the part.'
-    'Public Sub OpenDoc() 
-    'Dim oDoc As Document
-    'oDoc = invApp.Documents.Open("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.ipt")
-    'End Sub
 
     'Endless/Split Boolean'
     Public Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
@@ -52,6 +47,9 @@ Public Class Form1
          Dim invApp As Inventor.Application
          invApp = GetObject(, "Inventor.Application")
 
+        'Open the part.'
+        invApp.Documents.Open("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.ipt")
+
         'Get the active document. This assums it's a part document.
         partDoc = invApp.ActiveDocument
 
@@ -71,6 +69,10 @@ Public Class Form1
         Dim oExternalDiameterParam As Inventor.Parameter
         oExternalDiameterParam = params.Item("externalDiameter_parameter")
 
+        'Calculation Fascia & External diameter' - To be optimized
+        fascia = fascia - 0.6
+        externalDiameter = medio + fascia
+
         'Assign extra 1mm on diameter in case of double split.'
         If split = True Then
             externalDiameter = externalDiameter + 1
@@ -81,11 +83,45 @@ Public Class Form1
         oHeightParam.Expression = height
         oExternalDiameterParam.Expression = externalDiameter
 
+        '///Controlling iProperties part'
+        'Get the "Design Tracking Properties" property set.'
+        Dim designTrackPropSet As Inventor.PropertySet
+        designTrackPropSet = partDoc.PropertySets.Item("Design Tracking Properties")
+
+        'Assign "Drawing N°".'
+        'Get the "Description" property from the property set.'
+        Dim descProp As Inventor.Property
+        descProp = designTrackPropSet.Item("Description")
+        'Set the value of the property using the current value of the textbox.'
+        descProp.Value = textbox_object.Text
+
+        'Assign "Description (Endless/Double splits)".'
+        'Get the "Project" property from the property set.'
+        Dim splitProp As Inventor.Property
+        splitProp = designTrackPropSet.Item("Project")
+        'Set the value of the property using the current value of the textbox.'
+        If endless = True Then
+            splitProp.Value = "Back-up ring Endless"
+        End If
+        If split = True Then
+            splitProp.Value = "Back-up ring double splits"
+        End If
+
+        'Assign "Housing dimension".'
+        'Get the "Inventor Summary Information" property set.'
+        Dim inventorSummaryInfoPropSet As Inventor.PropertySet
+        inventorSummaryInfoPropSet = partDoc.PropertySets.Item("Inventor Summary Information")
+        'Get the "Subject" property from the property set.'
+        Dim housingProp As Inventor.Property
+        housingProp = inventorSummaryInfoPropSet.Item("Subject")
+        'Set the value of the property using the current value of the textbox.'
+        housingProp.Value = internalDiameter + "/" + externalDiameter + " * " + height
+
         'Update the document.'
         invApp.ActiveDocument.Update
 
         'Save the document with the assigned name (drawingNumber).'
-        invApp.ActiveDocument.SaveAs("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\" + drawingNumber + ".ipt", False)
+        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".ipt", False)
 
     End Sub
 
