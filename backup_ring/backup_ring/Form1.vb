@@ -7,9 +7,17 @@ Public Class Form1
     Dim endless As Boolean
     Dim split As Boolean
     Dim splitType As String
+    Dim drawingNumber As String
 
     Dim partDoc As Inventor.PartDocument
     Dim param As Inventor.Parameter
+
+
+    'Open the part.'
+    'Public Sub OpenDoc() 
+    'Dim oDoc As Document
+    'oDoc = invApp.Documents.Open("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.ipt")
+    'End Sub
 
     'Endless/Split Boolean'
     Public Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
@@ -30,6 +38,7 @@ Public Class Form1
         internalDiameter = textbox_internalDiameter.Text
         externalDiameter = textbox_externalDiameter.Text
         height = textbox_height.Text
+        drawingNumber = textbox_drawingNumber.Text
 
         Dim fascia As Double = (externalDiameter - internalDiameter) * 0.5
         Dim medio As Double = (externalDiameter + internalDiameter) * 0.5
@@ -37,11 +46,11 @@ Public Class Form1
         'Print the values'
         label_test.Text = "ID is " & internalDiameter & ", OD is " & externalDiameter & ", and H is " & height & "."
         label_test2.Text = "Split type is " & splitType & "."
-        label_temp.Text = "Fascia is " & fascia & ". Medio is " & medio & "."
+        label_temp.Text = "Fascia is " & fascia & ". Medio is " & medio & ". Drawing N° is " + drawingNumber + "."
 
         'Get the Inventor Application object
-        Dim invApp As Inventor.Application
-        invApp = GetObject(, "Inventor.Application")
+         Dim invApp As Inventor.Application
+         invApp = GetObject(, "Inventor.Application")
 
         'Get the active document. This assums it's a part document.
         partDoc = invApp.ActiveDocument
@@ -74,6 +83,13 @@ Public Class Form1
 
         'Update the document.'
         invApp.ActiveDocument.Update
+
+        'Save the document with the assigned name (drawingNumber).'
+        Dim oDoc As PartDocument
+        partDoc = invApp.Documents.Add _
+        (DocumentTypeEnum.kPartDocumentObject)
+        partDoc.SaveAs("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\" + drawingNumber + ".ipt", False)
+
 
     End Sub
 

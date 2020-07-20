@@ -3,12 +3,8 @@
     "",
     "\\backup_ring",
     "\\backup_ring\\backup_ring",
-    "\\backup_ring\\backup_ring\\bin",
-    "\\backup_ring\\backup_ring\\bin\\Debug",
-    "\\backup_ring\\backup_ring\\bin\\Release",
-    "\\backup_ring\\backup_ring\\obj",
-    "\\backup_ring\\backup_ring\\obj\\Release"
+    "\\backup_ring\\backup_ring\\.vs"
   ],
-  "SelectedNode": "\\backup_ring\\backup_ring\\Form1.vb",
+  "SelectedNode": "\\backup_ring\\backup_ring.sln",
   "PreviewInSolutionExplorer": false
 }

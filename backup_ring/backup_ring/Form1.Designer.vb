@@ -37,6 +37,8 @@ Partial Class Form1
         Me.radiobutton_split = New System.Windows.Forms.RadioButton()
         Me.label_test2 = New System.Windows.Forms.Label()
         Me.label_temp = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.textbox_drawingNumber = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'textbox_internalDiameter
@@ -125,7 +127,7 @@ Partial Class Form1
         '
         'button_ok
         '
-        Me.button_ok.Location = New System.Drawing.Point(230, 123)
+        Me.button_ok.Location = New System.Drawing.Point(230, 188)
         Me.button_ok.Margin = New System.Windows.Forms.Padding(2)
         Me.button_ok.Name = "button_ok"
         Me.button_ok.Size = New System.Drawing.Size(56, 19)
@@ -136,7 +138,7 @@ Partial Class Form1
         'label_test
         '
         Me.label_test.AutoSize = True
-        Me.label_test.Location = New System.Drawing.Point(16, 151)
+        Me.label_test.Location = New System.Drawing.Point(16, 233)
         Me.label_test.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label_test.Name = "label_test"
         Me.label_test.Size = New System.Drawing.Size(10, 13)
@@ -171,7 +173,7 @@ Partial Class Form1
         'label_test2
         '
         Me.label_test2.AutoSize = True
-        Me.label_test2.Location = New System.Drawing.Point(16, 175)
+        Me.label_test2.Location = New System.Drawing.Point(16, 257)
         Me.label_test2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label_test2.Name = "label_test2"
         Me.label_test2.Size = New System.Drawing.Size(10, 13)
@@ -181,12 +183,29 @@ Partial Class Form1
         'label_temp
         '
         Me.label_temp.AutoSize = True
-        Me.label_temp.Location = New System.Drawing.Point(16, 199)
+        Me.label_temp.Location = New System.Drawing.Point(16, 281)
         Me.label_temp.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label_temp.Name = "label_temp"
         Me.label_temp.Size = New System.Drawing.Size(10, 13)
         Me.label_temp.TabIndex = 15
         Me.label_temp.Text = "."
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(12, 155)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(61, 13)
+        Me.Label1.TabIndex = 16
+        Me.Label1.Text = "Drawing N°"
+        '
+        'textbox_drawingNumber
+        '
+        Me.textbox_drawingNumber.AcceptsReturn = True
+        Me.textbox_drawingNumber.Location = New System.Drawing.Point(12, 171)
+        Me.textbox_drawingNumber.Name = "textbox_drawingNumber"
+        Me.textbox_drawingNumber.Size = New System.Drawing.Size(140, 20)
+        Me.textbox_drawingNumber.TabIndex = 17
         '
         'Form1
         '
@@ -194,7 +213,9 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(305, 231)
+        Me.ClientSize = New System.Drawing.Size(305, 310)
+        Me.Controls.Add(Me.textbox_drawingNumber)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.label_temp)
         Me.Controls.Add(Me.label_test2)
         Me.Controls.Add(Me.radiobutton_split)
@@ -233,4 +254,6 @@ Partial Class Form1
     Friend WithEvents radiobutton_split As RadioButton
     Friend WithEvents label_test2 As Label
     Friend WithEvents label_temp As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents textbox_drawingNumber As TextBox
 End Class
