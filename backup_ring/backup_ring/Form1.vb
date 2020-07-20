@@ -115,13 +115,19 @@ Public Class Form1
         Dim housingProp As Inventor.Property
         housingProp = inventorSummaryInfoPropSet.Item("Subject")
         'Set the value of the property using the current value of the textbox.'
-        housingProp.Value = internalDiameter + "/" + externalDiameter + " * " + height
+        housingProp.Value = internalDiameter.ToString() + "/" + textbox_externalDiameter.Text.ToString() + " * " + height.ToString()
 
         'Update the document.'
         invApp.ActiveDocument.Update
 
         'Save the document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".ipt", False)
+
+        'Replace the reference .ipt file on the drawing.'
+        Dim oDoc As Inventor.DrawingDocument
+        oDoc = invApp.Documents.Open("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.idw")
+        oDoc.File.ReferencedFileDescriptors(1).ReplaceReference("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".ipt")
+
 
     End Sub
 
