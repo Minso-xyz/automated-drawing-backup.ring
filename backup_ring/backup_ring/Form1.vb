@@ -120,7 +120,7 @@ Public Class Form1
         'Update the document.'
         invApp.ActiveDocument.Update
 
-        'Save the document with the assigned name (drawingNumber).'
+        'Save the part-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".ipt", False)
 
         'Replace the reference .ipt file on the drawing.'
@@ -128,6 +128,14 @@ Public Class Form1
         oDoc = invApp.Documents.Open("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.idw")
         oDoc.File.ReferencedFileDescriptors(1).ReplaceReference("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".ipt")
 
+        'Save the drawing-document with the assigned name (drawingNumber).'
+        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
+
+        'Export drawing-document as PDF.'
+        'Dim oPM As PrintManager
+        'oPM = oDoc.PrintManger
+        'oPM.Printer = "Adobe PDF"
+        'oPM.PrinteToFile("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".pdf")
 
     End Sub
 
