@@ -135,7 +135,7 @@ Public Class Form1
         If textbox_externalDiameter.Text < 100 Then
             oViewA.[Scale] = 1
         Else If textbox_externalDiameter.Text >= 100 AND textbox_externalDiameter.Text < 150 Then
-            oViewA.[Scale] = 0.9
+            oViewA.[Scale] = 0.85
         Else If textbox_externalDiameter.Text >= 150 AND textbox_externalDiameter.Text < 200 Then
             oViewA.[Scale] = 0.8
         Else If textbox_externalDiameter.Text >= 200 AND textbox_externalDiameter.Text < 250 Then
@@ -148,8 +148,8 @@ Public Class Form1
             oViewA.[Scale] = 0.6
         Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 450 Then
             oViewA.[Scale] = 0.55
-        Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then
-            oViewA.[Scale] = 0.5
+        Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then   ' #Verified
+            oViewA.[Scale] = 0.35
         Else If textbox_externalDiameter.Text >= 500 AND textbox_externalDiameter.Text < 550 Then
             oViewA.[Scale] = 0.45
         Else If textbox_externalDiameter.Text >= 550 AND textbox_externalDiameter.Text < 600 Then
