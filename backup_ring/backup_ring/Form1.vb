@@ -78,6 +78,11 @@ Public Class Form1
             externalDiameter = externalDiameter + 1
             End If
 
+        '##### Set the tolerances.'
+        Call oFasciaParam.Tolerance.SetToSymmetric(0.1)
+        Call oHeightParam.Tolerance.SetToSymmetric(0.1)
+        Call oExternalDiameterParam.Tolerance.SetToDeviation(0.2, -0.1)
+
         '##### Change the equation of the parameter.'
         oFasciaParam.Expression = fascia
         oHeightParam.Expression = height
@@ -133,21 +138,21 @@ Public Class Form1
         Dim oViewA As DrawingView
         oViewA = oDoc.ActiveSheet.DrawingViews.Item(1)
         If textbox_externalDiameter.Text < 100 Then
-            oViewA.[Scale] = 1
-        Else If textbox_externalDiameter.Text >= 100 AND textbox_externalDiameter.Text < 150 Then
-            oViewA.[Scale] = 0.85
-        Else If textbox_externalDiameter.Text >= 150 AND textbox_externalDiameter.Text < 200 Then
             oViewA.[Scale] = 0.8
-        Else If textbox_externalDiameter.Text >= 200 AND textbox_externalDiameter.Text < 250 Then
-            oViewA.[Scale] = 0.75
-        Else If textbox_externalDiameter.Text >= 250 AND textbox_externalDiameter.Text < 300 Then
+        Else If textbox_externalDiameter.Text >= 100 AND textbox_externalDiameter.Text < 150 Then
             oViewA.[Scale] = 0.7
-        Else If textbox_externalDiameter.Text >= 300 AND textbox_externalDiameter.Text < 350 Then
+        Else If textbox_externalDiameter.Text >= 150 AND textbox_externalDiameter.Text < 200 Then
             oViewA.[Scale] = 0.65
-        Else If textbox_externalDiameter.Text >= 350 AND textbox_externalDiameter.Text < 400 Then
+        Else If textbox_externalDiameter.Text >= 200 AND textbox_externalDiameter.Text < 250 Then
             oViewA.[Scale] = 0.6
-        Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 450 Then
+        Else If textbox_externalDiameter.Text >= 250 AND textbox_externalDiameter.Text < 300 Then
             oViewA.[Scale] = 0.55
+        Else If textbox_externalDiameter.Text >= 300 AND textbox_externalDiameter.Text < 350 Then
+            oViewA.[Scale] = 0.5
+        Else If textbox_externalDiameter.Text >= 350 AND textbox_externalDiameter.Text < 400 Then   ' #Verified
+            oViewA.[Scale] = 0.45
+        Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 450 Then   ' #Verified
+            oViewA.[Scale] = 0.4
         Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then   ' #Verified
             oViewA.[Scale] = 0.35
         Else If textbox_externalDiameter.Text >= 500 AND textbox_externalDiameter.Text < 550 Then
@@ -165,6 +170,22 @@ Public Class Form1
         Else If textbox_externalDiameter.Text >= 800 AND textbox_externalDiameter.Text < 850 Then
             oViewA.[Scale] = 0.15
         Else If textbox_externalDiameter.Text >= 850 AND textbox_externalDiameter.Text < 900 Then
+            oViewA.[Scale] = 0.1
+        Else If textbox_externalDiameter.Text >= 900 AND textbox_externalDiameter.Text < 950 Then
+            oViewA.[Scale] = 0.45
+        Else If textbox_externalDiameter.Text >= 950 AND textbox_externalDiameter.Text < 1000 Then
+            oViewA.[Scale] = 0.4
+        Else If textbox_externalDiameter.Text >= 1000 AND textbox_externalDiameter.Text < 1050 Then
+            oViewA.[Scale] = 0.35
+        Else If textbox_externalDiameter.Text >= 1050 AND textbox_externalDiameter.Text < 1100 Then
+            oViewA.[Scale] = 0.3
+        Else If textbox_externalDiameter.Text >= 1100 AND textbox_externalDiameter.Text <1150 Then
+            oViewA.[Scale] = 0.25
+        Else If textbox_externalDiameter.Text >= 1150 AND textbox_externalDiameter.Text < 1200 Then
+            oViewA.[Scale] = 0.2
+        Else If textbox_externalDiameter.Text >= 1200 AND textbox_externalDiameter.Text < 1250 Then
+            oViewA.[Scale] = 0.15
+        Else If textbox_externalDiameter.Text >= 1250 AND textbox_externalDiameter.Text < 1300 Then
             oViewA.[Scale] = 0.1
         Else
             oViewA.[Scale] = 0.05
