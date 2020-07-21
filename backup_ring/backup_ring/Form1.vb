@@ -70,9 +70,9 @@ Public Class Form1
         oExternalDiameterParam = params.Item("externalDiameter_parameter")
 
         '##### Calculation Fascia
-        If textbox_externalDiameter < 400 Then
+        If textbox_externalDiameter.Text < 300 Then
             fascia = fascia - 0.4
-        Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 1000 Then
+        Else If textbox_externalDiameter.Text >= 300 AND textbox_externalDiameter.Text < 900 Then
             fascia = fascia - 0.6
         Else
             fascia = fascia - 0.8
@@ -85,11 +85,6 @@ Public Class Form1
         If split = True Then
             externalDiameter = externalDiameter + 1
             End If
-
-        '##### Set the tolerances.'
-        Call oFasciaParam.Tolerance.SetToSymmetric(0.1)
-        Call oHeightParam.Tolerance.SetToSymmetric(0.1)
-        Call oExternalDiameterParam.Tolerance.SetToDeviation(0.2, -0.1)
 
         '##### Change the equation of the parameter.'
         oFasciaParam.Expression = fascia
@@ -147,24 +142,24 @@ Public Class Form1
         oViewA = oDoc.ActiveSheet.DrawingViews.Item(1)
         If textbox_externalDiameter.Text < 100 Then
             oViewA.[Scale] = 0.8
-        Else If textbox_externalDiameter.Text >= 100 AND textbox_externalDiameter.Text < 150 Then
+        Else If textbox_externalDiameter.Text >= 100 AND textbox_externalDiameter.Text < 150 Then   ' #Verified
             oViewA.[Scale] = 0.7
-        Else If textbox_externalDiameter.Text >= 150 AND textbox_externalDiameter.Text < 200 Then
+        Else If textbox_externalDiameter.Text >= 150 AND textbox_externalDiameter.Text < 200 Then   ' #Verified
             oViewA.[Scale] = 0.65
-        Else If textbox_externalDiameter.Text >= 200 AND textbox_externalDiameter.Text < 250 Then
+        Else If textbox_externalDiameter.Text >= 200 AND textbox_externalDiameter.Text < 250 Then   ' #Verified
             oViewA.[Scale] = 0.6
-        Else If textbox_externalDiameter.Text >= 250 AND textbox_externalDiameter.Text < 300 Then
+        Else If textbox_externalDiameter.Text >= 250 AND textbox_externalDiameter.Text < 300 Then   ' #Verified
             oViewA.[Scale] = 0.55
-        Else If textbox_externalDiameter.Text >= 300 AND textbox_externalDiameter.Text < 350 Then
+        Else If textbox_externalDiameter.Text >= 300 AND textbox_externalDiameter.Text < 350 Then   ' #Verified
             oViewA.[Scale] = 0.5
         Else If textbox_externalDiameter.Text >= 350 AND textbox_externalDiameter.Text < 400 Then   ' #Verified
             oViewA.[Scale] = 0.45
         Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 450 Then   ' #Verified
             oViewA.[Scale] = 0.4
         Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then   ' #Verified
-            oViewA.[Scale] = 0.35
+            oViewA.[Scale] = 0.375
         Else If textbox_externalDiameter.Text >= 500 AND textbox_externalDiameter.Text < 550 Then
-            oViewA.[Scale] = 0.45
+            oViewA.[Scale] = 0.3
         Else If textbox_externalDiameter.Text >= 550 AND textbox_externalDiameter.Text < 600 Then
             oViewA.[Scale] = 0.4
         Else If textbox_externalDiameter.Text >= 600 AND textbox_externalDiameter.Text < 650 Then
