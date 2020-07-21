@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\backup_ring",
-    "\\backup_ring\\backup_ring",
-    "\\backup_ring\\backup_ring\\.vs"
+    "\\backup_ring\\backup_ring"
   ],
   "SelectedNode": "\\backup_ring\\backup_ring.sln",
-  "PreviewInSolutionExplorer": false
+  "PreviewInSolutionExplorer": true
 }
