@@ -2,8 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\backup_ring",
-    "\\backup_ring\\backup_ring"
+    "\\backup_ring\\backup_ring",
+    "\\backup_ring\\backup_ring\\bin",
+    "\\backup_ring\\backup_ring\\My Project",
+    "\\backup_ring\\backup_ring\\obj",
+    "\\backup_ring\\backup_ring\\obj\\Debug",
+    "\\backup_ring\\backup_ring\\obj\\Release",
+    "\\backup_ring\\backup_ring\\OldVersions"
   ],
-  "SelectedNode": "\\backup_ring\\backup_ring.sln",
+  "SelectedNode": "\\backup_ring\\backup_ring\\Form1.vb",
   "PreviewInSolutionExplorer": true
 }

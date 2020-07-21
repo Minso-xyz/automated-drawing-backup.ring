@@ -48,7 +48,7 @@ Public Class Form1
          invApp = GetObject(, "Inventor.Application")
 
         '##### Open the part.'
-        invApp.Documents.Open("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.ipt")
+        invApp.Documents.Open("\\dataserver2019\Tecnici\CARCO\EngineeringTEAM\AUTOMATIC_CREATOR\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.ipt")
 
         '##### Get the active document. This assums it's a part document.
         partDoc = invApp.ActiveDocument
@@ -125,24 +125,50 @@ Public Class Form1
 
         '##### Replace the reference .ipt file on the drawing.'
         Dim oDoc As Inventor.DrawingDocument
-        oDoc = invApp.Documents.Open("C:\Users\minso\Documents\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.idw")
+        oDoc = invApp.Documents.Open("\\dataserver2019\Tecnici\CARCO\EngineeringTEAM\AUTOMATIC_CREATOR\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.idw")
         oDoc.File.ReferencedFileDescriptors(1).ReplaceReference("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".ipt")
 
         '##### Scale the drawing views according to the external diameter.'
         ' ##### View A'
         Dim oViewA As DrawingView
         oViewA = oDoc.ActiveSheet.DrawingViews.Item(1)
-        If externalDiameter < 100 Then
+        If textbox_externalDiameter.Text < 100 Then
             oViewA.[Scale] = 1
-        End If
-        If externalDiameter >= 100 & externalDiameter < 200 Then
+        Else If textbox_externalDiameter.Text >= 100 AND textbox_externalDiameter.Text < 150 Then
+            oViewA.[Scale] = 0.9
+        Else If textbox_externalDiameter.Text >= 150 AND textbox_externalDiameter.Text < 200 Then
             oViewA.[Scale] = 0.8
-        End If
-        If externalDiameter >= 200 Then
+        Else If textbox_externalDiameter.Text >= 200 AND textbox_externalDiameter.Text < 250 Then
+            oViewA.[Scale] = 0.75
+        Else If textbox_externalDiameter.Text >= 250 AND textbox_externalDiameter.Text < 300 Then
+            oViewA.[Scale] = 0.7
+        Else If textbox_externalDiameter.Text >= 300 AND textbox_externalDiameter.Text < 350 Then
+            oViewA.[Scale] = 0.65
+        Else If textbox_externalDiameter.Text >= 350 AND textbox_externalDiameter.Text < 400 Then
+            oViewA.[Scale] = 0.6
+        Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 450 Then
+            oViewA.[Scale] = 0.55
+        Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then
             oViewA.[Scale] = 0.5
+        Else If textbox_externalDiameter.Text >= 500 AND textbox_externalDiameter.Text < 550 Then
+            oViewA.[Scale] = 0.45
+        Else If textbox_externalDiameter.Text >= 550 AND textbox_externalDiameter.Text < 600 Then
+            oViewA.[Scale] = 0.4
+        Else If textbox_externalDiameter.Text >= 600 AND textbox_externalDiameter.Text < 650 Then
+            oViewA.[Scale] = 0.35
+        Else If textbox_externalDiameter.Text >= 650 AND textbox_externalDiameter.Text < 700 Then
+            oViewA.[Scale] = 0.3
+        Else If textbox_externalDiameter.Text >= 700 AND textbox_externalDiameter.Text < 750 Then
+            oViewA.[Scale] = 0.25
+        Else If textbox_externalDiameter.Text >= 750 AND textbox_externalDiameter.Text < 800 Then
+            oViewA.[Scale] = 0.2
+        Else If textbox_externalDiameter.Text >= 800 AND textbox_externalDiameter.Text < 850 Then
+            oViewA.[Scale] = 0.15
+        Else If textbox_externalDiameter.Text >= 850 AND textbox_externalDiameter.Text < 900 Then
+            oViewA.[Scale] = 0.1
+        Else
+            oViewA.[Scale] = 0.05
         End If
-
-
 
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
@@ -158,6 +184,8 @@ Public Class Form1
         ' Save a copy as a PDF file.
         Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".pdf", True)
 
+        ' Save a copy as a jpeg file.
+        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
 
     End Sub
 
