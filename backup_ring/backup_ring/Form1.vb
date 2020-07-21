@@ -69,8 +69,16 @@ Public Class Form1
         Dim oExternalDiameterParam As Inventor.Parameter
         oExternalDiameterParam = params.Item("externalDiameter_parameter")
 
-        '##### Calculation Fascia & External diameter' - To be optimized
-        fascia = fascia - 0.6
+        '##### Calculation Fascia
+        If textbox_externalDiameter < 400 Then
+            fascia = fascia - 0.4
+        Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 1000 Then
+            fascia = fascia - 0.6
+        Else
+            fascia = fascia - 0.8
+        End If
+
+        '##### Calculation External diameter
         externalDiameter = medio + fascia
 
         '##### Assign extra 1mm on diameter in case of double split.'
