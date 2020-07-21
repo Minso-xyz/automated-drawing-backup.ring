@@ -142,28 +142,22 @@ Public Class Form1
             oViewA.[Scale] = 0.5
         End If
 
-        ' ##### View B'
-        Dim oViewB As DrawingView
-        oViewB = oDoc.ActiveSheet.DrawingViews.Item(2)
-        If fascia < 100 Then
-            oViewA.[Scale] = 5
-        End If
-        If fasica >= 100 & fascia < 200 Then
-            oViewA.[Scale] = 3
-        End If
-        If fascia >= 200 Then
-            oViewA.[Scale] = 1.5
-        End If
+
 
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
 
-        'Export drawing-document as PDF.'
-        'Dim oPM As PrintManager
-        'oPM = oDoc.PrintManger
-        'oPM.Printer = "Adobe PDF"
-        'oPM.PrinteToFile("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".pdf")
+        '##### Update the document.'
+        invApp.ActiveDocument.Update
+
+        ' ##### Export to PDF.'
+        ' Get the active docuement.
+        oDoc = invApp.activeDocument
+
+        ' Save a copy as a PDF file.
+        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".pdf", True)
+
 
     End Sub
 
