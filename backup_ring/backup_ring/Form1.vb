@@ -156,8 +156,8 @@ Public Class Form1
             oViewA.[Scale] = 0.45
         Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 450 Then   ' #Verified
             oViewA.[Scale] = 0.4
-        Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then   ' #Verified
-            oViewA.[Scale] = 0.375
+        Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then   ' 
+            oViewA.[Scale] = 0.35
         Else If textbox_externalDiameter.Text >= 500 AND textbox_externalDiameter.Text < 550 Then
             oViewA.[Scale] = 0.3
         Else If textbox_externalDiameter.Text >= 550 AND textbox_externalDiameter.Text < 600 Then
@@ -182,7 +182,7 @@ Public Class Form1
             oViewA.[Scale] = 0.35
         Else If textbox_externalDiameter.Text >= 1050 AND textbox_externalDiameter.Text < 1100 Then
             oViewA.[Scale] = 0.3
-        Else If textbox_externalDiameter.Text >= 1100 AND textbox_externalDiameter.Text <1150 Then
+        Else If textbox_externalDiameter.Text >= 1100 AND textbox_externalDiameter.Text < 1150 Then
             oViewA.[Scale] = 0.25
         Else If textbox_externalDiameter.Text >= 1150 AND textbox_externalDiameter.Text < 1200 Then
             oViewA.[Scale] = 0.2
@@ -193,6 +193,11 @@ Public Class Form1
         Else
             oViewA.[Scale] = 0.05
         End If
+
+        ' ##### Positioning detail view "B".'
+        Dim oViewB As DetailDrawingView
+        oViewB = oDoc.SelectSet.Item(1.1)
+        oViewB.[Scale] = 3
 
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
@@ -211,6 +216,6 @@ Public Class Form1
         ' Save a copy as a jpeg file.
         Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
 
+        
     End Sub
-
 End Class
