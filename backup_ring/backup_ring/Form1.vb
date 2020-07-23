@@ -142,62 +142,104 @@ Public Class Form1
         oViewA = oDoc.ActiveSheet.DrawingViews.Item(1)
         If textbox_externalDiameter.Text < 100 Then
             oViewA.[Scale] = 0.8
-        Else If textbox_externalDiameter.Text >= 100 AND textbox_externalDiameter.Text < 150 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 100 And textbox_externalDiameter.Text < 150 Then   ' #Verified
             oViewA.[Scale] = 0.7
-        Else If textbox_externalDiameter.Text >= 150 AND textbox_externalDiameter.Text < 200 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 150 And textbox_externalDiameter.Text < 200 Then   ' #Verified
             oViewA.[Scale] = 0.65
-        Else If textbox_externalDiameter.Text >= 200 AND textbox_externalDiameter.Text < 250 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 200 And textbox_externalDiameter.Text < 250 Then   ' #Verified
             oViewA.[Scale] = 0.6
-        Else If textbox_externalDiameter.Text >= 250 AND textbox_externalDiameter.Text < 300 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 250 And textbox_externalDiameter.Text < 300 Then   ' #Verified
             oViewA.[Scale] = 0.55
-        Else If textbox_externalDiameter.Text >= 300 AND textbox_externalDiameter.Text < 350 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 300 And textbox_externalDiameter.Text < 350 Then   ' #Verified
             oViewA.[Scale] = 0.5
-        Else If textbox_externalDiameter.Text >= 350 AND textbox_externalDiameter.Text < 400 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 350 And textbox_externalDiameter.Text < 400 Then   ' #Verified
             oViewA.[Scale] = 0.45
-        Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 450 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 450 Then   ' #Verified
             oViewA.[Scale] = 0.4
-        Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then   ' 
+        ElseIf textbox_externalDiameter.Text >= 450 And textbox_externalDiameter.Text < 500 Then   ' 
             oViewA.[Scale] = 0.3
-        ElseIf textbox_externalDiameter.Text >= 500 AND textbox_externalDiameter.Text < 550 Then
+        ElseIf textbox_externalDiameter.Text >= 500 And textbox_externalDiameter.Text < 550 Then
             oViewA.[Scale] = 0.25
-        ElseIf textbox_externalDiameter.Text >= 550 AND textbox_externalDiameter.Text < 600 Then
+        ElseIf textbox_externalDiameter.Text >= 550 And textbox_externalDiameter.Text < 600 Then
             oViewA.[Scale] = 0.4
-        Else If textbox_externalDiameter.Text >= 600 AND textbox_externalDiameter.Text < 650 Then
+        ElseIf textbox_externalDiameter.Text >= 600 And textbox_externalDiameter.Text < 650 Then
             oViewA.[Scale] = 0.35
-        Else If textbox_externalDiameter.Text >= 650 AND textbox_externalDiameter.Text < 700 Then
+        ElseIf textbox_externalDiameter.Text >= 650 And textbox_externalDiameter.Text < 700 Then
             oViewA.[Scale] = 0.3
-        Else If textbox_externalDiameter.Text >= 700 AND textbox_externalDiameter.Text < 750 Then
+        ElseIf textbox_externalDiameter.Text >= 700 And textbox_externalDiameter.Text < 750 Then
             oViewA.[Scale] = 0.25
-        Else If textbox_externalDiameter.Text >= 750 AND textbox_externalDiameter.Text < 800 Then
+        ElseIf textbox_externalDiameter.Text >= 750 And textbox_externalDiameter.Text < 800 Then
             oViewA.[Scale] = 0.2
-        Else If textbox_externalDiameter.Text >= 800 AND textbox_externalDiameter.Text < 850 Then
+        ElseIf textbox_externalDiameter.Text >= 800 And textbox_externalDiameter.Text < 850 Then
             oViewA.[Scale] = 0.15
-        Else If textbox_externalDiameter.Text >= 850 AND textbox_externalDiameter.Text < 900 Then
+        ElseIf textbox_externalDiameter.Text >= 850 And textbox_externalDiameter.Text < 900 Then
             oViewA.[Scale] = 0.1
-        Else If textbox_externalDiameter.Text >= 900 AND textbox_externalDiameter.Text < 950 Then
+        ElseIf textbox_externalDiameter.Text >= 900 And textbox_externalDiameter.Text < 950 Then
             oViewA.[Scale] = 0.45
-        Else If textbox_externalDiameter.Text >= 950 AND textbox_externalDiameter.Text < 1000 Then
+        ElseIf textbox_externalDiameter.Text >= 950 And textbox_externalDiameter.Text < 1000 Then
             oViewA.[Scale] = 0.4
-        Else If textbox_externalDiameter.Text >= 1000 AND textbox_externalDiameter.Text < 1050 Then
+        ElseIf textbox_externalDiameter.Text >= 1000 And textbox_externalDiameter.Text < 1050 Then
             oViewA.[Scale] = 0.35
-        Else If textbox_externalDiameter.Text >= 1050 AND textbox_externalDiameter.Text < 1100 Then
+        ElseIf textbox_externalDiameter.Text >= 1050 And textbox_externalDiameter.Text < 1100 Then
             oViewA.[Scale] = 0.3
-        Else If textbox_externalDiameter.Text >= 1100 AND textbox_externalDiameter.Text < 1150 Then
+        ElseIf textbox_externalDiameter.Text >= 1100 And textbox_externalDiameter.Text < 1150 Then
             oViewA.[Scale] = 0.25
-        Else If textbox_externalDiameter.Text >= 1150 AND textbox_externalDiameter.Text < 1200 Then
+        ElseIf textbox_externalDiameter.Text >= 1150 And textbox_externalDiameter.Text < 1200 Then
             oViewA.[Scale] = 0.2
-        Else If textbox_externalDiameter.Text >= 1200 AND textbox_externalDiameter.Text < 1250 Then
+        ElseIf textbox_externalDiameter.Text >= 1200 And textbox_externalDiameter.Text < 1250 Then
             oViewA.[Scale] = 0.15
-        Else If textbox_externalDiameter.Text >= 1250 AND textbox_externalDiameter.Text < 1300 Then
+        ElseIf textbox_externalDiameter.Text >= 1250 And textbox_externalDiameter.Text < 1300 Then
             oViewA.[Scale] = 0.1
         Else
             oViewA.[Scale] = 0.05
         End If
 
-        ' ##### Positioning detail view "B".'
-        'Dim oViewB As DetailDrawingView
-        'oViewB = oDoc.SelectSet.Item(1)
-        'oViewB.[Scale] = 3
+
+        ' ##### Detail view "B".'
+        'Set a reference to view "A".
+        Dim oSheet As Sheet
+        oSheet = oViewA.Parent
+
+        'Set a reference to the center of the base view.
+        Dim oPointViewB As Point2d
+        oPointViewB = oViewA.Center
+
+        'Translate point by a distance equal to the width of the view
+        'This will be placement point of the detail view.
+        oPointViewB.X = oPointViewB.X + oViewA.Width
+
+        'Arbitrarily find an arc within the selected drawing view.
+        'The detail view will include this arc.
+        Dim oCurve As DrawingCurve
+        Dim oArcCurve As DrawingCurve
+        For Each oCurve In oViewA.DrawingCurves
+            If oCurve.CurveType = CurveTypeEnum.kCircularArcCurve Then
+                oArcCurve = oCurve
+                Exit For
+            End If
+        Next
+
+        If Not oArcCurve Is Nothing Then
+            'Use the range of the arc in sheet space to calculate the detail view box.
+            Dim oCornerOne As Point2d
+            oCornerOne = oArcCurve.Evaluator2D.RangeBox.MinPoint
+            oCornerOne.X = oCornerOne.X - 1
+            oCornerOne.Y = oCornerOne.Y - 1
+
+            Dim oCornerTwo As Point2d
+            oCornerTwo = oArcCurve.Evaluator2D.RangeBox.MinPoint
+            oCornerTwo.X = oCornerTwo.X + 1
+            oCornerTwo.Y = oCornerTwo.Y + 1
+
+            'Create the detail view with a rectagular box.
+            Dim oViewB As DetailDrawingView
+            oViewB = oSheet.DrawingViews.AddDetailView(oViewA, oPointViewB, DrawingViewStyleEnum.kFromBaseDrawingViewStyle, False, oCornerOne, oCornerTwo, , oViewA.Scale * 2)
+            'oViewB.DetailDrawingView.Position() = (oCornerOne, oCornerTwo)
+
+        Else
+            MsgBox("Oh no! The automated drawing is failed. Contact Minso!")
+        End If
+
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
@@ -215,6 +257,6 @@ Public Class Form1
         ' Save a copy as a jpeg file.
         'Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
 
-        
+
     End Sub
 End Class
