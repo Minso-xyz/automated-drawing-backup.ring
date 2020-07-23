@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.textbox_internalDiameter = New System.Windows.Forms.TextBox()
         Me.label_internalDiameter = New System.Windows.Forms.Label()
         Me.label_first = New System.Windows.Forms.Label()
@@ -32,11 +33,8 @@ Partial Class Form1
         Me.label_height = New System.Windows.Forms.Label()
         Me.textbox_height = New System.Windows.Forms.TextBox()
         Me.button_ok = New System.Windows.Forms.Button()
-        Me.label_test = New System.Windows.Forms.Label()
         Me.radiobutton_endless = New System.Windows.Forms.RadioButton()
         Me.radiobutton_split = New System.Windows.Forms.RadioButton()
-        Me.label_test2 = New System.Windows.Forms.Label()
-        Me.label_temp = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.textbox_drawingNumber = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -133,24 +131,13 @@ Partial Class Form1
         '
         'button_ok
         '
-        Me.button_ok.Location = New System.Drawing.Point(238, 262)
+        Me.button_ok.Location = New System.Drawing.Point(215, 262)
         Me.button_ok.Margin = New System.Windows.Forms.Padding(2)
         Me.button_ok.Name = "button_ok"
-        Me.button_ok.Size = New System.Drawing.Size(56, 19)
+        Me.button_ok.Size = New System.Drawing.Size(79, 35)
         Me.button_ok.TabIndex = 9
         Me.button_ok.Text = "OK"
         Me.button_ok.UseVisualStyleBackColor = True
-        '
-        'label_test
-        '
-        Me.label_test.AutoSize = True
-        Me.label_test.Location = New System.Drawing.Point(16, 311)
-        Me.label_test.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.label_test.Name = "label_test"
-        Me.label_test.Size = New System.Drawing.Size(10, 13)
-        Me.label_test.TabIndex = 10
-        Me.label_test.Tag = ""
-        Me.label_test.Text = "."
         '
         'radiobutton_endless
         '
@@ -175,26 +162,6 @@ Partial Class Form1
         Me.radiobutton_split.TabStop = True
         Me.radiobutton_split.Text = "Double splits"
         Me.radiobutton_split.UseVisualStyleBackColor = True
-        '
-        'label_test2
-        '
-        Me.label_test2.AutoSize = True
-        Me.label_test2.Location = New System.Drawing.Point(16, 335)
-        Me.label_test2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.label_test2.Name = "label_test2"
-        Me.label_test2.Size = New System.Drawing.Size(10, 13)
-        Me.label_test2.TabIndex = 13
-        Me.label_test2.Text = "."
-        '
-        'label_temp
-        '
-        Me.label_temp.AutoSize = True
-        Me.label_temp.Location = New System.Drawing.Point(16, 359)
-        Me.label_temp.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.label_temp.Name = "label_temp"
-        Me.label_temp.Size = New System.Drawing.Size(10, 13)
-        Me.label_temp.TabIndex = 15
-        Me.label_temp.Text = "."
         '
         'Label1
         '
@@ -269,7 +236,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(305, 396)
+        Me.ClientSize = New System.Drawing.Size(305, 308)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.textbox_signature)
@@ -278,11 +245,8 @@ Partial Class Form1
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.textbox_drawingNumber)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.label_temp)
-        Me.Controls.Add(Me.label_test2)
         Me.Controls.Add(Me.radiobutton_split)
         Me.Controls.Add(Me.radiobutton_endless)
-        Me.Controls.Add(Me.label_test)
         Me.Controls.Add(Me.button_ok)
         Me.Controls.Add(Me.textbox_height)
         Me.Controls.Add(Me.label_height)
@@ -293,6 +257,8 @@ Partial Class Form1
         Me.Controls.Add(Me.label_first)
         Me.Controls.Add(Me.label_internalDiameter)
         Me.Controls.Add(Me.textbox_internalDiameter)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Back-up ring creator"
@@ -311,11 +277,8 @@ Partial Class Form1
     Friend WithEvents label_height As Label
     Friend WithEvents textbox_height As TextBox
     Friend WithEvents button_ok As Button
-    Friend WithEvents label_test As Label
     Friend WithEvents radiobutton_endless As RadioButton
     Friend WithEvents radiobutton_split As RadioButton
-    Friend WithEvents label_test2 As Label
-    Friend WithEvents label_temp As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents textbox_drawingNumber As TextBox
     Friend WithEvents Label2 As Label

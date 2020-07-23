@@ -39,12 +39,12 @@ Public Class Form1
         Dim medio As Double = (externalDiameter + internalDiameter) * 0.5
 
         '##### Print the values'
-        label_test.Text = "ID is " & internalDiameter & ", OD is " & externalDiameter & ", and H is " & height & "."
-        label_test2.Text = "Split type is " & splitType & "."
-        label_temp.Text = "Fascia is " & fascia & ". Medio is " & medio & ". Drawing N° is " + drawingNumber + "."
+        'label_test.Text = "ID is " & internalDiameter & ", OD is " & externalDiameter & ", and H is " & height & "."
+        'label_test2.Text = "Split type is " & splitType & "."
+        'label_temp.Text = "Fascia is " & fascia & ". Medio is " & medio & ". Drawing N° is " + drawingNumber + "."
 
         '##### Get the Inventor Application object
-         Dim invApp As Inventor.Application
+        Dim invApp As Inventor.Application
          invApp = GetObject(, "Inventor.Application")
 
         '##### Open the part.'
@@ -157,10 +157,10 @@ Public Class Form1
         Else If textbox_externalDiameter.Text >= 400 AND textbox_externalDiameter.Text < 450 Then   ' #Verified
             oViewA.[Scale] = 0.4
         Else If textbox_externalDiameter.Text >= 450 AND textbox_externalDiameter.Text < 500 Then   ' 
-            oViewA.[Scale] = 0.35
-        Else If textbox_externalDiameter.Text >= 500 AND textbox_externalDiameter.Text < 550 Then
             oViewA.[Scale] = 0.3
-        Else If textbox_externalDiameter.Text >= 550 AND textbox_externalDiameter.Text < 600 Then
+        ElseIf textbox_externalDiameter.Text >= 500 AND textbox_externalDiameter.Text < 550 Then
+            oViewA.[Scale] = 0.25
+        ElseIf textbox_externalDiameter.Text >= 550 AND textbox_externalDiameter.Text < 600 Then
             oViewA.[Scale] = 0.4
         Else If textbox_externalDiameter.Text >= 600 AND textbox_externalDiameter.Text < 650 Then
             oViewA.[Scale] = 0.35
@@ -195,10 +195,9 @@ Public Class Form1
         End If
 
         ' ##### Positioning detail view "B".'
-        Dim oViewB As DetailDrawingView
-        oViewB = oDoc.SelectSet.Item(1.1)
-        oViewB.[Scale] = 3
-
+        'Dim oViewB As DetailDrawingView
+        'oViewB = oDoc.SelectSet.Item(1)
+        'oViewB.[Scale] = 3
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
@@ -214,7 +213,7 @@ Public Class Form1
         Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".pdf", True)
 
         ' Save a copy as a jpeg file.
-        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
+        'Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
 
         
     End Sub
