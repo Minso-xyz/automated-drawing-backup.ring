@@ -194,51 +194,10 @@ Public Class Form1
             oViewA.[Scale] = 0.05
         End If
 
-
         ' ##### Detail view "B".'
-        'Set a reference to view "A".
-        Dim oSheet As Sheet
-        oSheet = oViewA.Parent
-
-        'Set a reference to the center of the base view.
-        Dim oPointViewB As Point2d
-        oPointViewB = oViewA.Center
-
-        'Translate point by a distance equal to the width of the view
-        'This will be placement point of the detail view.
-        oPointViewB.X = oPointViewB.X + oViewA.Width
-
-        'Arbitrarily find an arc within the selected drawing view.
-        'The detail view will include this arc.
-        Dim oCurve As DrawingCurve
-        Dim oArcCurve As DrawingCurve
-        For Each oCurve In oViewA.DrawingCurves
-            If oCurve.CurveType = CurveTypeEnum.kCircularArcCurve Then
-                oArcCurve = oCurve
-                Exit For
-            End If
-        Next
-
-        If Not oArcCurve Is Nothing Then
-            'Use the range of the arc in sheet space to calculate the detail view box.
-            Dim oCornerOne As Point2d
-            oCornerOne = oArcCurve.Evaluator2D.RangeBox.MinPoint
-            oCornerOne.X = oCornerOne.X - 1
-            oCornerOne.Y = oCornerOne.Y - 1
-
-            Dim oCornerTwo As Point2d
-            oCornerTwo = oArcCurve.Evaluator2D.RangeBox.MinPoint
-            oCornerTwo.X = oCornerTwo.X + 1
-            oCornerTwo.Y = oCornerTwo.Y + 1
-
-            'Create the detail view with a rectagular box.
-            Dim oViewB As DetailDrawingView
-            oViewB = oSheet.DrawingViews.AddDetailView(oViewA, oPointViewB, DrawingViewStyleEnum.kFromBaseDrawingViewStyle, False, oCornerOne, oCornerTwo, , oViewA.Scale * 2)
-            'oViewB.DetailDrawingView.Position() = (oCornerOne, oCornerTwo)
-
-        Else
-            MsgBox("Oh no! The automated drawing is failed. Contact Minso!")
-        End If
+        Dim oViewB As DetailDrawingView
+        oViewB = oDoc.ActiveSheet.DrawingViews.Item(2)
+        oViewB.[Scale] = 3
 
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
