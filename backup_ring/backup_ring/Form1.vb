@@ -87,14 +87,29 @@ Public Class Form1
             End If
 
         ' ##### Tolerance setting
-        Call oFasciaParam.Tolerance.SetToSymmetric("0.2 mm")
+        ' Fascia
+        If oFasciaParam < 15 Then
+            Call oFasciaParam.Tolerance.SetToSymmetric("0.1 mm")
+        Else
+            Call oFasciaParam.Tolerance.SetToSymmetric("0.15 mm")
+        End If
+
+        'Height
+        If oHeightParam < 15 Then
+            Call oHeightParam.Tolerance.SetToSymmetric("0.1 mm")
+        Else
+            Call oHeightParam.Tolerance.SetToSymmetric("0.15 mm")
+        End If
+
+        'External Diameter
+
+
+        
 
         '##### Change the equation of the parameter.'
         oFasciaParam.Expression = fascia
         oHeightParam.Expression = height
         oExternalDiameterParam.Expression = externalDiameter
-
-
 
         '##### ///Controlling iProperties part'
         '##### Get the "Design Tracking Properties" property set.'
@@ -220,6 +235,7 @@ Public Class Form1
         Else
             oViewB.[Scale] = 2
         End If
+
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
