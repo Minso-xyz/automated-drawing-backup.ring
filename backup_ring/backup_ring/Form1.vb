@@ -195,12 +195,6 @@ Public Class Form1
         End If
 
         ' ##### Detail view "B".'
-<<<<<<< HEAD
-        Dim oViewB As DetailDrawingView
-        oViewB = oDoc.ActiveSheet.DrawingViews.Item(2)
-        oViewB.[Scale] = 3
-=======
-                ' ##### Detail view "B".'
         Dim oViewB As DetailDrawingView
         For Each oSheet As Sheet In oDoc.Sheets
             For Each oView As DrawingView In oSheet.DrawingViews
@@ -221,7 +215,6 @@ Public Class Form1
         Else
             oViewB.[Scale] = 2
         End If
->>>>>>> 89e1eccaa906d6a03faebad0a0dd79969d13ef41
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
