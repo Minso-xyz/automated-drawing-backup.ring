@@ -195,10 +195,33 @@ Public Class Form1
         End If
 
         ' ##### Detail view "B".'
+<<<<<<< HEAD
         Dim oViewB As DetailDrawingView
         oViewB = oDoc.ActiveSheet.DrawingViews.Item(2)
         oViewB.[Scale] = 3
+=======
+                ' ##### Detail view "B".'
+        Dim oViewB As DetailDrawingView
+        For Each oSheet As Sheet In oDoc.Sheets
+            For Each oView As DrawingView In oSheet.DrawingViews
+                If oView.ViewType = DrawingViewTypeEnum.kDetailDrawingViewType Then
+                    oViewB = oView
+                End If
+            Next
+        Next
 
+        'Set the scale of Detail View B depending on the size
+        'Scale the detail drawing view according to the height.
+        If textbox_height.Text < 5 Then
+            oViewB.[Scale] = 5
+        ElseIf textbox_height.Text >= 5 And textbox_height.Text < 20 Then
+            oViewB.[Scale] = 4
+        ElseIf textbox_height.Text >= 20 And textbox_height.Text < 35 Then
+            oViewB.[Scale] = 3
+        Else
+            oViewB.[Scale] = 2
+        End If
+>>>>>>> 89e1eccaa906d6a03faebad0a0dd79969d13ef41
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
