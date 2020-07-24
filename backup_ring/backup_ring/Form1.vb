@@ -86,10 +86,15 @@ Public Class Form1
             externalDiameter = externalDiameter + 1
             End If
 
+        ' ##### Tolerance setting
+        Call oFasciaParam.Tolerance.SetToSymmetric("0.2 mm")
+
         '##### Change the equation of the parameter.'
         oFasciaParam.Expression = fascia
         oHeightParam.Expression = height
         oExternalDiameterParam.Expression = externalDiameter
+
+
 
         '##### ///Controlling iProperties part'
         '##### Get the "Design Tracking Properties" property set.'
@@ -231,7 +236,6 @@ Public Class Form1
 
         ' Save a copy as a jpeg file.
         'Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
-
 
     End Sub
 End Class
