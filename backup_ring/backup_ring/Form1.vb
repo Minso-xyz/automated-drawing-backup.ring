@@ -101,10 +101,18 @@ Public Class Form1
             Call oHeightParam.Tolerance.SetToSymmetric("0.15 mm")
         End If
 
-        'External Diameter
-
-
-        
+        'External Diameter - to be optimized & in case of double split +1 / +2
+        If medio + fascia < 100
+            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.2 mm", "-0.1 mm")
+        Else If medio + fascia >= 100 And medio + fascia < 200
+            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.3 mm", "-0.1 mm")
+        Else If medio + fascia >= 200 And medio + fascia < 400                                 ' DMH +0.2 / -0.2
+            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.4 mm", "-0.1 mm")
+        Else If medio + fascia >= 400 And medio + fascia < 600                                 ' DMH +0.25 / -0.25
+            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.5 mm", "-0.1 mm")
+        Else
+            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.6 mm", "-0.1 mm")
+        End If
 
         '##### Change the equation of the parameter.'
         oFasciaParam.Expression = fascia
