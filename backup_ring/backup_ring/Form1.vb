@@ -88,14 +88,14 @@ Public Class Form1
 
         ' ##### Tolerance setting
         ' Fascia
-        If oFasciaParam < 15 Then
+        If fascia < 15 Then
             Call oFasciaParam.Tolerance.SetToSymmetric("0.1 mm")
         Else
             Call oFasciaParam.Tolerance.SetToSymmetric("0.15 mm")
         End If
 
         'Height
-        If oHeightParam < 15 Then
+        If height < 15 Then
             Call oHeightParam.Tolerance.SetToSymmetric("0.1 mm")
         Else
             Call oHeightParam.Tolerance.SetToSymmetric("0.15 mm")
