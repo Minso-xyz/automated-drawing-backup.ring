@@ -262,6 +262,32 @@ Public Class Form1
             oViewB.[Scale] = 1
         End If
 
+        ' ##### 3D view "View3D".'
+        Dim oView3D As DrawingView
+        For Each oSheet As Sheet In oDoc.Sheets
+            For Each oView As DrawingView In oSheet.DrawingViews
+                If oView.ViewType = DrawingViewTypeEnum.kProjectedDrawingViewType Then
+                    oView3D = oView
+                End If
+            Next
+        Next
+
+        'Set the scale of 3D view depending on the size
+        'Scale the detail drawing view according to the height.
+        If textbox_externalDiameter.Text < 100 Then
+            oView3D.[Scale] = 0.4
+        ElseIf textbox_externalDiameter.Text >= 100 And textbox_externalDiameter.Text < 400 Then
+            oView3D.[Scale] = 0.3
+        ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 700 Then
+            oView3D.[Scale] = 0.2
+        ElseIf textbox_externalDiameter.Text >= 700 And textbox_externalDiameter.Text < 1000 Then
+            oView3D.[Scale] = 0.1
+        ElseIf textbox_externalDiameter.Text >= 1000 And textbox_externalDiameter.Text < 1200 Then
+            oView3D.[Scale] = 0.05
+        Else
+            oView3D.[Scale] = 0.02
+        End If
+
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
@@ -279,5 +305,6 @@ Public Class Form1
         ' Save a copy as a jpeg file.
         'Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
 
+        MessageBox.Show("Automated drawing is generated.")
     End Sub
 End Class
