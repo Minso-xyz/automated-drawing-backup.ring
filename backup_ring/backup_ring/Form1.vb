@@ -343,8 +343,8 @@ Public Class Form1
         'Call oDoc.SaveAsBitmap("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
         Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
 
-
-        MessageBox.Show("Automated drawing is generated.")
+        'Finishing message
+        MessageBox.Show("Automated drawing is generated. Please double check!", "Yay!", MessageBoxButtons.OK, MessageBoxIcon.None)
         Me.Close()
     End Sub
 End Class
