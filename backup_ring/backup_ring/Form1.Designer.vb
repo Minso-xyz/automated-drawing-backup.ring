@@ -43,6 +43,7 @@ Partial Class Form1
         Me.textbox_signature = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.comboBox_materialType = New System.Windows.Forms.ComboBox()
+        Me.checkBox_thirdParty = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'textbox_internalDiameter
@@ -131,7 +132,7 @@ Partial Class Form1
         '
         'button_ok
         '
-        Me.button_ok.Location = New System.Drawing.Point(215, 262)
+        Me.button_ok.Location = New System.Drawing.Point(215, 287)
         Me.button_ok.Margin = New System.Windows.Forms.Padding(2)
         Me.button_ok.Name = "button_ok"
         Me.button_ok.Size = New System.Drawing.Size(79, 35)
@@ -230,13 +231,24 @@ Partial Class Form1
         Me.comboBox_materialType.Size = New System.Drawing.Size(141, 21)
         Me.comboBox_materialType.TabIndex = 23
         '
+        'checkBox_thirdParty
+        '
+        Me.checkBox_thirdParty.AutoSize = True
+        Me.checkBox_thirdParty.Location = New System.Drawing.Point(15, 297)
+        Me.checkBox_thirdParty.Name = "checkBox_thirdParty"
+        Me.checkBox_thirdParty.Size = New System.Drawing.Size(129, 17)
+        Me.checkBox_thirdParty.TabIndex = 25
+        Me.checkBox_thirdParty.Text = "Drawing for third party"
+        Me.checkBox_thirdParty.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.None
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(305, 308)
+        Me.ClientSize = New System.Drawing.Size(305, 335)
+        Me.Controls.Add(Me.checkBox_thirdParty)
         Me.Controls.Add(Me.comboBox_materialType)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.textbox_signature)
@@ -287,4 +299,5 @@ Partial Class Form1
     Friend WithEvents textbox_signature As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents comboBox_materialType As ComboBox
+    Friend WithEvents checkBox_thirdParty As CheckBox
 End Class

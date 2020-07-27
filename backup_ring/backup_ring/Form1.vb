@@ -41,6 +41,11 @@ Public Class Form1
             Me.Close()
         End If
 
+        If internalDiameter + 7 >= externalDiameter Then
+            MessageBox.Show("Cross section is too small!", "Wrong Dimension", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            Me.Close()
+        End If
+
         If height >= 50 Then
             MessageBox.Show("Isn't the height too high? Try to split into 2.", "Wrong Dimension", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Me.Close()
@@ -112,17 +117,30 @@ Public Class Form1
             Call oHeightParam.Tolerance.SetToSymmetric("0.15 mm")
         End If
 
-        'External Diameter - to be optimized & in case of double split +1 / +2
-        If medio + fascia < 100
-            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.2 mm", "-0.1 mm")
-        Else If medio + fascia >= 100 And medio + fascia < 200
-            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.3 mm", "-0.1 mm")
-        Else If medio + fascia >= 200 And medio + fascia < 400                                 ' DMH +0.2 / -0.2
-            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.4 mm", "-0.1 mm")
-        Else If medio + fascia >= 400 And medio + fascia < 600                                 ' DMH +0.25 / -0.25
-            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.5 mm", "-0.1 mm")
-        Else
-            Call oExternalDiameterParam.Tolerance.SetToDeviation("0.6 mm", "-0.1 mm")
+        ' TOLERANCE External Diameter
+        ' DOUBLE SPLIT
+        If split = True And externalDiameter < 1100 Then
+            Call oExternalDiameterParam.Tolerance.SetToDeviation("1.0 mm", "-0.0 mm")
+        End If
+        If split = True And externalDiameter >= 1100 Then
+            Call oExternalDiameterParam.Tolerance.SetToDeviation(externalDiameter * 0.0001, "-0,0 mm")  ' standard unit is cm, thus apply extra 0.1
+        End If
+
+        ' TOLERANCE External Diameter
+        ' ENDLESS 2 CASES : CROSS SECTION 15.0 mm
+        If endless = True And fascia <= 15 Then
+            Dim PositiveToleranceSmaller As Double
+            Dim NegativeToleranceSmaller As Double
+            PositiveToleranceSmaller = externalDiameter - (medio + fascia) - 0.1
+            NegativeToleranceSmaller = (medio + fascia) - fascia - fascia - externalDiameter - 0.1
+            Call oExternalDiameterParam.Tolerance.SetToDeviation(PositiveToleranceSmaller * 0.1, NegativeToleranceSmaller * 0.1)
+        End If
+        If endless = True And fascia > 15 Then
+            Dim PositiveToleranceBigger As Double
+            Dim NegativeToleranceBigger As Double
+            PositiveToleranceBigger = externalDiameter - (medio + fascia) - 0.1
+            NegativeToleranceBigger = (medio + fascia) - fascia - fascia - externalDiameter - 0.1
+            Call oExternalDiameterParam.Tolerance.SetToDeviation(PositiveToleranceBigger * 0.1, NegativeToleranceBigger * 0.1)
         End If
 
         '##### Change the equation of the parameter.'
@@ -197,11 +215,11 @@ Public Class Form1
         ElseIf textbox_externalDiameter.Text >= 250 And textbox_externalDiameter.Text < 300 Then   ' #Verified
             oViewA.[Scale] = 0.55
         ElseIf textbox_externalDiameter.Text >= 300 And textbox_externalDiameter.Text < 350 Then   ' #Verified
-            oViewA.[Scale] = 0.5
-        ElseIf textbox_externalDiameter.Text >= 350 And textbox_externalDiameter.Text < 400 Then   ' #Verified
             oViewA.[Scale] = 0.45
-        ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 450 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 350 And textbox_externalDiameter.Text < 400 Then   ' #Verified
             oViewA.[Scale] = 0.4
+        ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 450 Then   ' #Verified
+            oViewA.[Scale] = 0.35
         ElseIf textbox_externalDiameter.Text >= 450 And textbox_externalDiameter.Text < 500 Then   ' 
             oViewA.[Scale] = 0.3
         ElseIf textbox_externalDiameter.Text >= 500 And textbox_externalDiameter.Text < 550 Then
@@ -257,9 +275,9 @@ Public Class Form1
         ElseIf textbox_height.Text >= 5 And textbox_height.Text < 20 Then
             oViewB.[Scale] = 3
         ElseIf textbox_height.Text >= 20 And textbox_height.Text < 35 Then
-            oViewB.[Scale] = 2
+            oViewB.[Scale] = 2.5
         Else
-            oViewB.[Scale] = 1
+            oViewB.[Scale] = 1.5
         End If
 
         ' ##### 3D view "View3D".'
@@ -277,16 +295,35 @@ Public Class Form1
         If textbox_externalDiameter.Text < 100 Then
             oView3D.[Scale] = 0.4
         ElseIf textbox_externalDiameter.Text >= 100 And textbox_externalDiameter.Text < 400 Then
-            oView3D.[Scale] = 0.3
-        ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 700 Then
             oView3D.[Scale] = 0.2
-        ElseIf textbox_externalDiameter.Text >= 700 And textbox_externalDiameter.Text < 1000 Then
+        ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 700 Then
             oView3D.[Scale] = 0.1
-        ElseIf textbox_externalDiameter.Text >= 1000 And textbox_externalDiameter.Text < 1200 Then
+        ElseIf textbox_externalDiameter.Text >= 700 And textbox_externalDiameter.Text < 1000 Then
             oView3D.[Scale] = 0.05
+        ElseIf textbox_externalDiameter.Text >= 1000 And textbox_externalDiameter.Text < 1200 Then
+            oView3D.[Scale] = 0.03
         Else
             oView3D.[Scale] = 0.02
         End If
+
+        ' ##### Update the customized table. - to be optimized
+        Dim oTableCustom As CustomTable
+        For Each oSheet As Sheet In oDoc.Sheets
+            For Each oTable As CustomTable In oSheet.CustomTables
+                If oTable.Title = "CRONOLOGIA REVISIONI" Then
+                    oTableCustom = oTable
+                End If
+            Next
+        Next
+
+        Dim oContents(0 To 5) As String
+        Dim oggi As Date = Date.Today
+        oggi.ToString("dd'/'MM'/'yy")
+
+        'oContents(0) = rev.Text
+        'oContents(1) = textbox_description.Text
+        oContents(3) = textbox_signature.Text
+        oContents(4) = oggi
 
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
@@ -303,8 +340,11 @@ Public Class Form1
         Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".pdf", True)
 
         ' Save a copy as a jpeg file.
-        'Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
+        'Call oDoc.SaveAsBitmap("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
+        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
+
 
         MessageBox.Show("Automated drawing is generated.")
+        Me.Close()
     End Sub
 End Class
