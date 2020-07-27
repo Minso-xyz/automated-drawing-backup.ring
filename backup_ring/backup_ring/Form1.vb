@@ -341,7 +341,7 @@ Public Class Form1
 
         ' Save a copy as a jpeg file.
         'Call oDoc.SaveAsBitmap("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
-        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
+        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
 
 
         MessageBox.Show("Automated drawing is generated.")
