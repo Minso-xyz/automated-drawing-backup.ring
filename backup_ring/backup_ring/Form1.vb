@@ -41,6 +41,11 @@ Public Class Form1
             Me.Close()
         End If
 
+        If height >= 50 Then
+            MessageBox.Show("Isn't the height too high? Try to split into 2.", "Wrong Dimension", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Me.Close()
+        End If
+
         Dim fascia As Double = (externalDiameter - internalDiameter) * 0.5
         Dim medio As Double = (externalDiameter + internalDiameter) * 0.5
 
