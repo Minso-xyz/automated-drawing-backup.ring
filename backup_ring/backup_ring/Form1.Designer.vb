@@ -42,7 +42,7 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.textbox_signature = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.comboBox_materialType = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'textbox_internalDiameter
@@ -221,14 +221,14 @@ Partial Class Form1
         Me.Label4.TabIndex = 22
         Me.Label4.Text = "Material :"
         '
-        'ComboBox1
+        'comboBox_materialType
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Nylon", "PTFE"})
-        Me.ComboBox1.Location = New System.Drawing.Point(83, 211)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(141, 21)
-        Me.ComboBox1.TabIndex = 23
+        Me.comboBox_materialType.FormattingEnabled = True
+        Me.comboBox_materialType.Items.AddRange(New Object() {"Nylon 6/6", "PTFE"})
+        Me.comboBox_materialType.Location = New System.Drawing.Point(83, 211)
+        Me.comboBox_materialType.Name = "comboBox_materialType"
+        Me.comboBox_materialType.Size = New System.Drawing.Size(141, 21)
+        Me.comboBox_materialType.TabIndex = 23
         '
         'Form1
         '
@@ -237,7 +237,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.ClientSize = New System.Drawing.Size(305, 308)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.comboBox_materialType)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.textbox_signature)
         Me.Controls.Add(Me.Label3)
@@ -286,5 +286,5 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents textbox_signature As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents comboBox_materialType As ComboBox
 End Class

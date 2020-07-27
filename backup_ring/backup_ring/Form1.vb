@@ -35,6 +35,12 @@ Public Class Form1
         height = textbox_height.Text
         drawingNumber = textbox_drawingNumber.Text
 
+        ' ##### Verifying the values
+        If internalDiameter > externalDiameter Then
+            MessageBox.Show("Internal Diameter must be smaller than external diameter!", "Wrong Dimension", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            Me.Close()
+        End If
+
         Dim fascia As Double = (externalDiameter - internalDiameter) * 0.5
         Dim medio As Double = (externalDiameter + internalDiameter) * 0.5
 
@@ -130,6 +136,13 @@ Public Class Form1
         descProp = designTrackPropSet.Item("Description")
         '##### Set the value of the property using the current value of the textbox.'
         descProp.Value = textbox_object.Text
+
+        ' ##### Assign "Material"
+        ' ##### Get the "Material" property from the property set.
+        Dim materialType As Inventor.Property
+        materialType = designTrackPropSet.Item("Material")
+        ' ##### Set the value of the property using the value from input form
+        materialType.Value = comboBox_materialType.Text
 
         '##### Assign "Description (Endless/Double splits)".'
         '##### Get the "Project" property from the property set.'
@@ -235,13 +248,13 @@ Public Class Form1
         'Set the scale of Detail View B depending on the size
         'Scale the detail drawing view according to the height.
         If textbox_height.Text < 5 Then
-            oViewB.[Scale] = 5
-        ElseIf textbox_height.Text >= 5 And textbox_height.Text < 20 Then
             oViewB.[Scale] = 4
-        ElseIf textbox_height.Text >= 20 And textbox_height.Text < 35 Then
+        ElseIf textbox_height.Text >= 5 And textbox_height.Text < 20 Then
             oViewB.[Scale] = 3
-        Else
+        ElseIf textbox_height.Text >= 20 And textbox_height.Text < 35 Then
             oViewB.[Scale] = 2
+        Else
+            oViewB.[Scale] = 1
         End If
 
 
