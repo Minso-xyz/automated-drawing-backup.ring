@@ -44,6 +44,7 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.comboBox_materialType = New System.Windows.Forms.ComboBox()
         Me.checkBox_thirdParty = New System.Windows.Forms.CheckBox()
+        Me.labelTemp = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'textbox_internalDiameter
@@ -241,13 +242,23 @@ Partial Class Form1
         Me.checkBox_thirdParty.Text = "Drawing for third party"
         Me.checkBox_thirdParty.UseVisualStyleBackColor = True
         '
+        'labelTemp
+        '
+        Me.labelTemp.AutoSize = True
+        Me.labelTemp.Location = New System.Drawing.Point(14, 351)
+        Me.labelTemp.Name = "labelTemp"
+        Me.labelTemp.Size = New System.Drawing.Size(10, 13)
+        Me.labelTemp.TabIndex = 26
+        Me.labelTemp.Text = "."
+        '
         'Form1
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.None
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(305, 335)
+        Me.ClientSize = New System.Drawing.Size(305, 372)
+        Me.Controls.Add(Me.labelTemp)
         Me.Controls.Add(Me.checkBox_thirdParty)
         Me.Controls.Add(Me.comboBox_materialType)
         Me.Controls.Add(Me.Label4)
@@ -300,4 +311,5 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents comboBox_materialType As ComboBox
     Friend WithEvents checkBox_thirdParty As CheckBox
+    Friend WithEvents labelTemp As Label
 End Class

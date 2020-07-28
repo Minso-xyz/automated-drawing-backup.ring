@@ -12,7 +12,7 @@ Public Class Form1
 
     Dim partDoc As Inventor.PartDocument
     Dim param As Inventor.Parameter
-
+    Dim invApp As Inventor.Application
 
     '##### Endless/Split Boolean'
     Public Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
@@ -61,7 +61,7 @@ Public Class Form1
 
         '##### Get the Inventor Application object
         Dim invApp As Inventor.Application
-         invApp = GetObject(, "Inventor.Application")
+        invApp = GetObject(, "Inventor.Application")
 
         '##### Open the part.'
         invApp.Documents.Open("\\dataserver2019\Tecnici\CARCO\EngineeringTEAM\AUTOMATIC_CREATOR\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.ipt")
@@ -88,7 +88,7 @@ Public Class Form1
         '##### Calculation Fascia
         If textbox_externalDiameter.Text < 300 Then
             fascia = fascia - 0.4
-        Else If textbox_externalDiameter.Text >= 300 AND textbox_externalDiameter.Text < 900 Then
+        ElseIf textbox_externalDiameter.Text >= 300 And textbox_externalDiameter.Text < 900 Then
             fascia = fascia - 0.6
         Else
             fascia = fascia - 0.8
@@ -100,7 +100,7 @@ Public Class Form1
         '##### Assign extra 1mm on diameter in case of double split.'
         If split = True Then
             externalDiameter = externalDiameter + 1
-            End If
+        End If
 
         ' ##### Tolerance setting
         ' Fascia
@@ -128,20 +128,25 @@ Public Class Form1
 
         ' TOLERANCE External Diameter
         ' ENDLESS 2 CASES : CROSS SECTION 15.0 mm
-        If endless = True And fascia <= 15 Then
-            Dim PositiveToleranceSmaller As Double
-            Dim NegativeToleranceSmaller As Double
-            PositiveToleranceSmaller = externalDiameter - (medio + fascia) - 0.1
-            NegativeToleranceSmaller = (medio + fascia) - fascia - fascia - externalDiameter - 0.1
-            Call oExternalDiameterParam.Tolerance.SetToDeviation(PositiveToleranceSmaller * 0.1, NegativeToleranceSmaller * 0.1)
+
+        Dim PositiveToleranceSmallerThan15 As Double
+        Dim NegativeToleranceSmallerThan15 As Double
+        Dim PositiveToleranceBiggerThan15 As Double
+        Dim NegativeToleranceBiggerThan15 As Double
+
+        If endless = True And fascia < 15 Then
+            PositiveToleranceSmallerThan15 = textbox_externalDiameter.Text - medio - fascia - 0.1
+            NegativeToleranceSmallerThan15 = (medio + fascia) - fascia - fascia - textbox_internalDiameter.Text - 0.2 - 0.1
+            Call oExternalDiameterParam.Tolerance.SetToDeviation(PositiveToleranceSmallerThan15 * 0.1, NegativeToleranceSmallerThan15 * -0.1)
         End If
-        If endless = True And fascia > 15 Then
-            Dim PositiveToleranceBigger As Double
-            Dim NegativeToleranceBigger As Double
-            PositiveToleranceBigger = externalDiameter - (medio + fascia) - 0.1
-            NegativeToleranceBigger = (medio + fascia) - fascia - fascia - externalDiameter - 0.1
-            Call oExternalDiameterParam.Tolerance.SetToDeviation(PositiveToleranceBigger * 0.1, NegativeToleranceBigger * 0.1)
+        If endless = True And fascia >= 15 Then
+            PositiveToleranceBiggerThan15 = textbox_externalDiameter.Text - medio - fascia - 0.1
+            NegativeToleranceBiggerThan15 = (medio + fascia) - fascia - fascia - textbox_internalDiameter.Text - 0.3 - 0.1
+            Call oExternalDiameterParam.Tolerance.SetToDeviation(PositiveToleranceBiggerThan15 * 0.1, NegativeToleranceBiggerThan15 * -0.1)
         End If
+
+        'labelTemp.Text = "Positive tolerance (< 15) : " & PositiveToleranceSmallerThan15
+        labelTemp.Text = "textbox_internalDiameter.Text  : " & textbox_internalDiameter.Text
 
         '##### Change the equation of the parameter.'
         oFasciaParam.Expression = fascia
@@ -341,10 +346,14 @@ Public Class Form1
 
         ' Save a copy as a jpeg file.
         'Call oDoc.SaveAsBitmap("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
-        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
+        'Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
+
+        'SaveAsJPG("C:\Users\minso\Documents\Drawings", 3000)
 
         'Finishing message
-        MessageBox.Show("Automated drawing is generated. Please double check!", "Yay!", MessageBoxButtons.OK, MessageBoxIcon.None)
+        MessageBox.Show("Automated drawing is generated. Please double check!", "WOOHOO!", MessageBoxButtons.OK, MessageBoxIcon.None)
         Me.Close()
     End Sub
+
+
 End Class
