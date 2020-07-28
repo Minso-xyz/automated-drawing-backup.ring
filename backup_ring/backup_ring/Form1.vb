@@ -14,6 +14,9 @@ Public Class Form1
     Dim param As Inventor.Parameter
     Dim invApp As Inventor.Application
 
+    ' PRINTING TEST
+    'labelTemp.Text = "textbox_internalDiameter.Text  : " & textbox_internalDiameter.Text
+
     '##### Endless/Split Boolean'
     Public Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
         If radiobutton_endless.Checked = True Then
@@ -145,9 +148,6 @@ Public Class Form1
             Call oExternalDiameterParam.Tolerance.SetToDeviation(PositiveToleranceBiggerThan15 * 0.1, NegativeToleranceBiggerThan15 * -0.1)
         End If
 
-        'labelTemp.Text = "Positive tolerance (< 15) : " & PositiveToleranceSmallerThan15
-        labelTemp.Text = "textbox_internalDiameter.Text  : " & textbox_internalDiameter.Text
-
         '##### Change the equation of the parameter.'
         oFasciaParam.Expression = fascia
         oHeightParam.Expression = height
@@ -276,11 +276,11 @@ Public Class Form1
         'Set the scale of Detail View B depending on the size
         'Scale the detail drawing view according to the height.
         If textbox_height.Text < 5 Then
-            oViewB.[Scale] = 4
-        ElseIf textbox_height.Text >= 5 And textbox_height.Text < 20 Then
             oViewB.[Scale] = 3
-        ElseIf textbox_height.Text >= 20 And textbox_height.Text < 35 Then
+        ElseIf textbox_height.Text >= 5 And textbox_height.Text < 20 Then
             oViewB.[Scale] = 2.5
+        ElseIf textbox_height.Text >= 20 And textbox_height.Text < 35 Then
+            oViewB.[Scale] = 2
         Else
             oViewB.[Scale] = 1.5
         End If
@@ -351,9 +351,15 @@ Public Class Form1
         'SaveAsJPG("C:\Users\minso\Documents\Drawings", 3000)
 
         'Finishing message
-        MessageBox.Show("Automated drawing is generated. Please double check!", "WOOHOO!", MessageBoxButtons.OK, MessageBoxIcon.None)
+        'IF SPLIT = True, ADD COLLAUDO DIMENSION INFO HERE
+        If endless = True Then
+            MessageBox.Show("Automated drawing is generated. Please double check!", "Taaaaaac! :D", MessageBoxButtons.OK, MessageBoxIcon.None)
+        End If
+
+        If split = True Then
+            MessageBox.Show("Automated drawing is generated. Please double check!" & vbCrLf & "This backup ring is split. Final external dimater value is " & externalDiameter - 1 & "mm", "Taaaaaac! :D", MessageBoxButtons.OK, MessageBoxIcon.None)
+        End If
         Me.Close()
     End Sub
-
 
 End Class
