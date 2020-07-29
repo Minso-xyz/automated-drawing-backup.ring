@@ -212,7 +212,7 @@ Public Class Form1
         '##### Replace the reference .ipt file on the drawing.'
         Dim oDoc As Inventor.DrawingDocument
         oDoc = invApp.Documents.Open("\\dataserver2019\Tecnici\CARCO\EngineeringTEAM\AUTOMATIC_CREATOR\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.idw")
-        oDoc.File.ReferencedFileDescriptors(1).ReplaceReference("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".ipt")
+        oDoc.File.ReferencedFileDescriptors(1).ReplaceReference("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + "rev." + revision + ".ipt")
 
         '##### Scale the drawing views according to the external diameter.'
         ' ##### View A'
