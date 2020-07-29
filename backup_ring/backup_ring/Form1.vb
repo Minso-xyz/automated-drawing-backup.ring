@@ -14,10 +14,6 @@ Public Class Form1
     Dim param As Inventor.Parameter
     Dim invApp As Inventor.Application
 
-    ' PRINTING TEST
-    'labelTemp.Text = "textbox_internalDiameter.Text  : " & textbox_internalDiameter.Text
-    'labelTemp.Text = oRow.Item(1)
-
     '##### Endless/Split Boolean'
     Public Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
         If radiobutton_endless.Checked = True Then
@@ -127,12 +123,12 @@ Public Class Form1
             Call oExternalDiameterParam.Tolerance.SetToDeviation("1.0 mm", "-0.0 mm")
         End If
         If split = True And externalDiameter >= 1100 Then
-            Call oExternalDiameterParam.Tolerance.SetToDeviation(externalDiameter * 0.0001, "-0,0 mm")  ' standard unit is cm, thus apply extra 0.1
+            Dim splitToleranceExternalDiameter As Double = externalDiameter * 0.0001
+            Call oExternalDiameterParam.Tolerance.SetToDeviation(Math.Round([splitToleranceExternalDiameter], 2), "-0,0 mm")  ' standard unit is cm, thus apply extra 0.1
         End If
 
         ' TOLERANCE External Diameter
         ' ENDLESS 2 CASES : CROSS SECTION 15.0 mm
-
         Dim PositiveToleranceSmallerThan15 As Double
         Dim NegativeToleranceSmallerThan15 As Double
         Dim PositiveToleranceBiggerThan15 As Double
@@ -148,6 +144,20 @@ Public Class Form1
             NegativeToleranceBiggerThan15 = (medio + fascia) - fascia - fascia - textbox_internalDiameter.Text - 0.3 - 0.1
             Call oExternalDiameterParam.Tolerance.SetToDeviation(PositiveToleranceBiggerThan15 * 0.1, NegativeToleranceBiggerThan15 * -0.1)
         End If
+
+        ' Final tolerance for split
+        Dim finalTolerancePositive As Double
+        Dim finalToleranceNegative As Double
+        If fascia < 15 Then
+            finalTolerancePositive = textbox_externalDiameter.Text - medio - fascia - 0.1
+            finalToleranceNegative = ((medio + fascia) - fascia - fascia - textbox_internalDiameter.Text - 0.2 - 0.1) * -1
+        End If
+        If fascia >= 15 Then
+            finalTolerancePositive = textbox_externalDiameter.Text - medio - fascia - 0.1
+            finalToleranceNegative = ((medio + fascia) - fascia - fascia - textbox_internalDiameter.Text - 0.3 - 0.1) * -1
+        End If
+        finalTolerancePositive = Math.Round([finalTolerancePositive], 2)
+        finalToleranceNegative = Math.Round([finalToleranceNegative], 2)
 
         '##### Change the equation of the parameter.'
         oFasciaParam.Expression = fascia
@@ -317,9 +327,9 @@ Public Class Form1
         ElseIf textbox_externalDiameter.Text >= 700 And textbox_externalDiameter.Text < 1000 Then
             oView3D.[Scale] = 0.05
         ElseIf textbox_externalDiameter.Text >= 1000 And textbox_externalDiameter.Text < 1200 Then
-            oView3D.[Scale] = 0.03
+            oView3D.[Scale] = 0.04
         Else
-            oView3D.[Scale] = 0.02
+            oView3D.[Scale] = 0.03
         End If
 
         ' ##### Update the revision table
@@ -371,7 +381,7 @@ Public Class Form1
         End If
 
         If split = True Then
-            MessageBox.Show("Automated drawing is generated. Please double check!" & vbCrLf & "This backup ring is split. Final external dimater value is " & externalDiameter - 1 & "mm", "Taaaaaac! :D", MessageBoxButtons.OK, MessageBoxIcon.None)
+            MessageBox.Show("Automated drawing is generated. Please double check!" & vbCrLf & vbCrLf & "This backup ring is split. Final external diameter value is " & externalDiameter - 1 & " mm" & vbCrLf & "(Tol. +" & finalTolerancePositive & "/" & finalToleranceNegative & " mm)", "Taaaaaac! :D", MessageBoxButtons.OK, MessageBoxIcon.None)
         End If
         Me.Close()
     End Sub

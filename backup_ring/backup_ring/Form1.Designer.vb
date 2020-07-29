@@ -137,10 +137,10 @@ Partial Class Form1
         '
         'button_ok
         '
-        Me.button_ok.Location = New System.Drawing.Point(156, 327)
+        Me.button_ok.Location = New System.Drawing.Point(154, 327)
         Me.button_ok.Margin = New System.Windows.Forms.Padding(2)
         Me.button_ok.Name = "button_ok"
-        Me.button_ok.Size = New System.Drawing.Size(67, 35)
+        Me.button_ok.Size = New System.Drawing.Size(69, 35)
         Me.button_ok.TabIndex = 9
         Me.button_ok.Text = "OK"
         Me.button_ok.UseVisualStyleBackColor = True
@@ -241,9 +241,9 @@ Partial Class Form1
         Me.checkBox_thirdParty.AutoSize = True
         Me.checkBox_thirdParty.Location = New System.Drawing.Point(15, 327)
         Me.checkBox_thirdParty.Name = "checkBox_thirdParty"
-        Me.checkBox_thirdParty.Size = New System.Drawing.Size(129, 17)
+        Me.checkBox_thirdParty.Size = New System.Drawing.Size(138, 17)
         Me.checkBox_thirdParty.TabIndex = 25
-        Me.checkBox_thirdParty.Text = "Drawing for third party"
+        Me.checkBox_thirdParty.Text = "Drawing for a third party"
         Me.checkBox_thirdParty.UseVisualStyleBackColor = True
         '
         'Label5
