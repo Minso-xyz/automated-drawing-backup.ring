@@ -300,8 +300,10 @@ Public Class Form1
         'Scale the detail drawing view according to the height.
         If textbox_externalDiameter.Text < 100 Then
             oView3D.[Scale] = 0.4
-        ElseIf textbox_externalDiameter.Text >= 100 And textbox_externalDiameter.Text < 400 Then
+        ElseIf textbox_externalDiameter.Text >= 100 And textbox_externalDiameter.Text < 200 Then
             oView3D.[Scale] = 0.2
+        ElseIf textbox_externalDiameter.Text >= 200 And textbox_externalDiameter.Text < 400 Then
+            oView3D.[Scale] = 0.15
         ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 700 Then
             oView3D.[Scale] = 0.1
         ElseIf textbox_externalDiameter.Text >= 700 And textbox_externalDiameter.Text < 1000 Then
@@ -321,14 +323,18 @@ Public Class Form1
         Dim oCell4 As RevisionTableCell = oRow.Item(4)
         Dim oCell5 As RevisionTableCell = oRow.Item(5)
 
-        Dim oggi As Date = Date.Today
-        oggi.ToString("dd'/'MM'/'yy")
+        Dim oggi As Date = Date.Today   ' Date
 
-        oCell1.Text = "0"
-        oCell2.Text = "Drawing Issue"
-        oCell3.Text = "Automated"
-        oCell4.Text = textbox_signature.Text
-        oCell5.Text = oggi
+        oCell1.Text = comboBox_revision.Text    ' Revision N°
+
+        If oCell1.Text = "0" Then                    ' Description (If Revision N° is "0", assign "Drawing Issue"
+            oCell2.Text =  "Drawing Issue"
+        Else
+            oCell2.Text = textbox_description.Text
+        End If
+        oCell3.Text = "Automated"               ' Drawn
+        oCell4.Text = textbox_signature.Text    ' Approved
+        oCell5.Text = oggi                      ' Date (dd/mm/yyyy)
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)

@@ -44,7 +44,11 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.comboBox_materialType = New System.Windows.Forms.ComboBox()
         Me.checkBox_thirdParty = New System.Windows.Forms.CheckBox()
-        Me.labelTemp = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.comboBox_revision = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.textbox_description = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'textbox_internalDiameter
@@ -52,7 +56,7 @@ Partial Class Form1
         Me.textbox_internalDiameter.Location = New System.Drawing.Point(11, 64)
         Me.textbox_internalDiameter.Margin = New System.Windows.Forms.Padding(2)
         Me.textbox_internalDiameter.Name = "textbox_internalDiameter"
-        Me.textbox_internalDiameter.Size = New System.Drawing.Size(84, 20)
+        Me.textbox_internalDiameter.Size = New System.Drawing.Size(60, 20)
         Me.textbox_internalDiameter.TabIndex = 0
         '
         'label_internalDiameter
@@ -61,9 +65,9 @@ Partial Class Form1
         Me.label_internalDiameter.Location = New System.Drawing.Point(9, 48)
         Me.label_internalDiameter.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label_internalDiameter.Name = "label_internalDiameter"
-        Me.label_internalDiameter.Size = New System.Drawing.Size(85, 13)
+        Me.label_internalDiameter.Size = New System.Drawing.Size(65, 13)
         Me.label_internalDiameter.TabIndex = 1
-        Me.label_internalDiameter.Text = "Internal diameter"
+        Me.label_internalDiameter.Text = "Int. diameter"
         '
         'label_first
         '
@@ -78,25 +82,25 @@ Partial Class Form1
         'label_externalDiameter
         '
         Me.label_externalDiameter.AutoSize = True
-        Me.label_externalDiameter.Location = New System.Drawing.Point(108, 48)
+        Me.label_externalDiameter.Location = New System.Drawing.Point(84, 48)
         Me.label_externalDiameter.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label_externalDiameter.Name = "label_externalDiameter"
-        Me.label_externalDiameter.Size = New System.Drawing.Size(88, 13)
+        Me.label_externalDiameter.Size = New System.Drawing.Size(68, 13)
         Me.label_externalDiameter.TabIndex = 3
-        Me.label_externalDiameter.Text = "External diameter"
+        Me.label_externalDiameter.Text = "Ext. diameter"
         '
         'textbox_externalDiameter
         '
-        Me.textbox_externalDiameter.Location = New System.Drawing.Point(110, 64)
+        Me.textbox_externalDiameter.Location = New System.Drawing.Point(87, 64)
         Me.textbox_externalDiameter.Margin = New System.Windows.Forms.Padding(2)
         Me.textbox_externalDiameter.Name = "textbox_externalDiameter"
-        Me.textbox_externalDiameter.Size = New System.Drawing.Size(85, 20)
+        Me.textbox_externalDiameter.Size = New System.Drawing.Size(60, 20)
         Me.textbox_externalDiameter.TabIndex = 4
         '
         'label_slash
         '
         Me.label_slash.AutoSize = True
-        Me.label_slash.Location = New System.Drawing.Point(98, 67)
+        Me.label_slash.Location = New System.Drawing.Point(73, 67)
         Me.label_slash.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label_slash.Name = "label_slash"
         Me.label_slash.Size = New System.Drawing.Size(12, 13)
@@ -106,7 +110,7 @@ Partial Class Form1
         'label_per
         '
         Me.label_per.AutoSize = True
-        Me.label_per.Location = New System.Drawing.Point(199, 68)
+        Me.label_per.Location = New System.Drawing.Point(151, 68)
         Me.label_per.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label_per.Name = "label_per"
         Me.label_per.Size = New System.Drawing.Size(11, 13)
@@ -116,7 +120,7 @@ Partial Class Form1
         'label_height
         '
         Me.label_height.AutoSize = True
-        Me.label_height.Location = New System.Drawing.Point(212, 48)
+        Me.label_height.Location = New System.Drawing.Point(164, 48)
         Me.label_height.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label_height.Name = "label_height"
         Me.label_height.Size = New System.Drawing.Size(38, 13)
@@ -125,18 +129,18 @@ Partial Class Form1
         '
         'textbox_height
         '
-        Me.textbox_height.Location = New System.Drawing.Point(213, 64)
+        Me.textbox_height.Location = New System.Drawing.Point(166, 64)
         Me.textbox_height.Margin = New System.Windows.Forms.Padding(2)
         Me.textbox_height.Name = "textbox_height"
-        Me.textbox_height.Size = New System.Drawing.Size(74, 20)
+        Me.textbox_height.Size = New System.Drawing.Size(60, 20)
         Me.textbox_height.TabIndex = 8
         '
         'button_ok
         '
-        Me.button_ok.Location = New System.Drawing.Point(215, 287)
+        Me.button_ok.Location = New System.Drawing.Point(156, 327)
         Me.button_ok.Margin = New System.Windows.Forms.Padding(2)
         Me.button_ok.Name = "button_ok"
-        Me.button_ok.Size = New System.Drawing.Size(79, 35)
+        Me.button_ok.Size = New System.Drawing.Size(67, 35)
         Me.button_ok.TabIndex = 9
         Me.button_ok.Text = "OK"
         Me.button_ok.UseVisualStyleBackColor = True
@@ -201,7 +205,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 240)
+        Me.Label3.Location = New System.Drawing.Point(117, 243)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(58, 13)
         Me.Label3.TabIndex = 20
@@ -209,9 +213,9 @@ Partial Class Form1
         '
         'textbox_signature
         '
-        Me.textbox_signature.Location = New System.Drawing.Point(83, 239)
+        Me.textbox_signature.Location = New System.Drawing.Point(176, 240)
         Me.textbox_signature.Name = "textbox_signature"
-        Me.textbox_signature.Size = New System.Drawing.Size(53, 20)
+        Me.textbox_signature.Size = New System.Drawing.Size(48, 20)
         Me.textbox_signature.TabIndex = 21
         '
         'Label4
@@ -235,21 +239,56 @@ Partial Class Form1
         'checkBox_thirdParty
         '
         Me.checkBox_thirdParty.AutoSize = True
-        Me.checkBox_thirdParty.Location = New System.Drawing.Point(15, 297)
+        Me.checkBox_thirdParty.Location = New System.Drawing.Point(15, 327)
         Me.checkBox_thirdParty.Name = "checkBox_thirdParty"
         Me.checkBox_thirdParty.Size = New System.Drawing.Size(129, 17)
         Me.checkBox_thirdParty.TabIndex = 25
         Me.checkBox_thirdParty.Text = "Drawing for third party"
         Me.checkBox_thirdParty.UseVisualStyleBackColor = True
         '
-        'labelTemp
+        'Label5
         '
-        Me.labelTemp.AutoSize = True
-        Me.labelTemp.Location = New System.Drawing.Point(14, 351)
-        Me.labelTemp.Name = "labelTemp"
-        Me.labelTemp.Size = New System.Drawing.Size(10, 13)
-        Me.labelTemp.TabIndex = 26
-        Me.labelTemp.Text = "."
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(14, 244)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(36, 13)
+        Me.Label5.TabIndex = 27
+        Me.Label5.Text = "Rev. :"
+        '
+        'comboBox_revision
+        '
+        Me.comboBox_revision.FormattingEnabled = True
+        Me.comboBox_revision.Items.AddRange(New Object() {"0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "W", "X", "Y", "Z"})
+        Me.comboBox_revision.Location = New System.Drawing.Point(54, 240)
+        Me.comboBox_revision.Name = "comboBox_revision"
+        Me.comboBox_revision.Size = New System.Drawing.Size(54, 21)
+        Me.comboBox_revision.TabIndex = 28
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(14, 273)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(66, 13)
+        Me.Label6.TabIndex = 29
+        Me.Label6.Text = "Description :"
+        '
+        'textbox_description
+        '
+        Me.textbox_description.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.textbox_description.Location = New System.Drawing.Point(16, 290)
+        Me.textbox_description.Name = "textbox_description"
+        Me.textbox_description.Size = New System.Drawing.Size(207, 20)
+        Me.textbox_description.TabIndex = 30
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(201, 48)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(29, 13)
+        Me.Label7.TabIndex = 31
+        Me.Label7.Text = "[mm]"
         '
         'Form1
         '
@@ -257,8 +296,12 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ClientSize = New System.Drawing.Size(305, 372)
-        Me.Controls.Add(Me.labelTemp)
+        Me.ClientSize = New System.Drawing.Size(239, 374)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.textbox_description)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.comboBox_revision)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.checkBox_thirdParty)
         Me.Controls.Add(Me.comboBox_materialType)
         Me.Controls.Add(Me.Label4)
@@ -311,5 +354,9 @@ Partial Class Form1
     Friend WithEvents Label4 As Label
     Friend WithEvents comboBox_materialType As ComboBox
     Friend WithEvents checkBox_thirdParty As CheckBox
-    Friend WithEvents labelTemp As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents comboBox_revision As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents textbox_description As TextBox
+    Friend WithEvents Label7 As Label
 End Class
