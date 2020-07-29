@@ -16,6 +16,7 @@ Public Class Form1
 
     ' PRINTING TEST
     'labelTemp.Text = "textbox_internalDiameter.Text  : " & textbox_internalDiameter.Text
+    'labelTemp.Text = oRow.Item(1)
 
     '##### Endless/Split Boolean'
     Public Sub radiobutton_endless_Click(sender As Object, e As EventArgs) Handles radiobutton_endless.Click
@@ -49,7 +50,7 @@ Public Class Form1
             Me.Close()
         End If
 
-        If height >= 50 Then
+        If height > 50 Then
             MessageBox.Show("Isn't the height too high? Try to split into 2.", "Wrong Dimension", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Me.Close()
         End If
@@ -311,25 +312,23 @@ Public Class Form1
             oView3D.[Scale] = 0.02
         End If
 
-        ' ##### Update the customized table. - to be optimized
-        Dim oTableCustom As CustomTable
-        For Each oSheet As Sheet In oDoc.Sheets
-            For Each oTable As CustomTable In oSheet.CustomTables
-                If oTable.Title = "CRONOLOGIA REVISIONI" Then
-                    oTableCustom = oTable
-                End If
-            Next
-        Next
+        ' ##### Update the revision table
+        Dim oRevisionTable As RevisionTable = oDoc.ActiveSheet.RevisionTables.Item(1)
+        Dim oRow As RevisionTableRow = oRevisionTable.RevisionTableRows.Item(1)
+        Dim oCell1 As RevisionTableCell = oRow.Item(1)
+        Dim oCell2 As RevisionTableCell = oRow.Item(2)
+        Dim oCell3 As RevisionTableCell = oRow.Item(3)
+        Dim oCell4 As RevisionTableCell = oRow.Item(4)
+        Dim oCell5 As RevisionTableCell = oRow.Item(5)
 
-        Dim oContents(0 To 5) As String
         Dim oggi As Date = Date.Today
         oggi.ToString("dd'/'MM'/'yy")
 
-        'oContents(0) = rev.Text
-        'oContents(1) = textbox_description.Text
-        oContents(3) = textbox_signature.Text
-        oContents(4) = oggi
-
+        oCell1.Text = "0"
+        oCell2.Text = "Drawing Issue"
+        oCell3.Text = "Automated"
+        oCell4.Text = textbox_signature.Text
+        oCell5.Text = oggi
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
         invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
