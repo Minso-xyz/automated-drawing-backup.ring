@@ -51,6 +51,11 @@ Public Class Form1
             Me.Close()
         End If
 
+        If internalDiameter > 2100 Or externalDiameter > 2100 Then
+            MessageBox.Show("Isn't the diameter too big? Contact ufficio tecnico.", "Troppo grande", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Me.Close()
+        End If
+
         Dim fascia As Double = (externalDiameter - internalDiameter) * 0.5
         Dim medio As Double = (externalDiameter + internalDiameter) * 0.5
 
@@ -204,6 +209,11 @@ Public Class Form1
         housingProp = inventorSummaryInfoPropSet.Item("Subject")
         '##### Set the value of the property using the current value of the textbox.'
         housingProp.Value = internalDiameter.ToString() + "/" + textbox_externalDiameter.Text.ToString() + " * " + height.ToString()
+
+        ' Drawing for a third party
+        'If checkBox_thirdParty.Checked = True Then
+        'End If
+
 
         '##### Update the document.'
         invApp.ActiveDocument.Update()

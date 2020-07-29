@@ -137,13 +137,14 @@ Partial Class Form1
         '
         'button_ok
         '
+        Me.button_ok.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.button_ok.Location = New System.Drawing.Point(154, 327)
         Me.button_ok.Margin = New System.Windows.Forms.Padding(2)
         Me.button_ok.Name = "button_ok"
         Me.button_ok.Size = New System.Drawing.Size(69, 35)
         Me.button_ok.TabIndex = 9
         Me.button_ok.Text = "OK"
-        Me.button_ok.UseVisualStyleBackColor = True
+        Me.button_ok.UseVisualStyleBackColor = False
         '
         'radiobutton_endless
         '
