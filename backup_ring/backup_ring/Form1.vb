@@ -203,16 +203,16 @@ Public Class Form1
         If comboBox_revision.Text = "0" Then
             revision = ""
         Else
-            revision = comboBox_revision.Text
+            revision = "_rev." + comboBox_revision.Text
         End If
 
         '##### Save the part-document with the assigned name (drawingNumber).'
-        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + "_rev." + revision + ".ipt", False)
+        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + revision + ".ipt", False)
 
         '##### Replace the reference .ipt file on the drawing.'
         Dim oDoc As Inventor.DrawingDocument
         oDoc = invApp.Documents.Open("\\dataserver2019\Tecnici\CARCO\EngineeringTEAM\AUTOMATIC_CREATOR\automated-drawing-backup.ring\backup_ring\backup_ring\backup_ring.idw")
-        oDoc.File.ReferencedFileDescriptors(1).ReplaceReference("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + "_rev." + revision + ".ipt")
+        oDoc.File.ReferencedFileDescriptors(1).ReplaceReference("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + revision + ".ipt")
 
         '##### Scale the drawing views according to the external diameter.'
         ' ##### View A'
@@ -346,7 +346,7 @@ Public Class Form1
 
 
         '##### Save the drawing-document with the assigned name (drawingNumber).'
-        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + "_rev." + revision + ".idw", False)
+        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + revision + ".idw", False)
 
         '##### Update the document.'
         invApp.ActiveDocument.Update
@@ -356,7 +356,7 @@ Public Class Form1
         oDoc = invApp.ActiveDocument
 
         ' Save a copy as a PDF file.
-        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + "_rev." + revision + ".pdf", True)
+        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + revision + ".pdf", True)
 
         ' Save a copy as a jpeg file.
         'Call oDoc.SaveAsBitmap("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
