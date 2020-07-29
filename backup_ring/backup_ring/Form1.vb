@@ -196,10 +196,18 @@ Public Class Form1
         housingProp.Value = internalDiameter.ToString() + "/" + textbox_externalDiameter.Text.ToString() + " * " + height.ToString()
 
         '##### Update the document.'
-        invApp.ActiveDocument.Update
+        invApp.ActiveDocument.Update()
+
+        ' ##### Add revision N° in each exported file name (Except Rev.0)
+        Dim revision As String
+        If comboBox_revision.Text = "0" Then
+            revision = ""
+        Else
+            revision = comboBox_revision.Text
+        End If
 
         '##### Save the part-document with the assigned name (drawingNumber).'
-        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".ipt", False)
+        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + "_rev." + revision + ".ipt", False)
 
         '##### Replace the reference .ipt file on the drawing.'
         Dim oDoc As Inventor.DrawingDocument
@@ -336,18 +344,19 @@ Public Class Form1
         oCell4.Text = textbox_signature.Text    ' Approved
         oCell5.Text = oggi                      ' Date (dd/mm/yyyy)
 
+
         '##### Save the drawing-document with the assigned name (drawingNumber).'
-        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".idw", False)
+        invApp.ActiveDocument.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + "_rev." + revision + ".idw", False)
 
         '##### Update the document.'
         invApp.ActiveDocument.Update
 
         ' ##### Export to PDF.'
         ' Get the active docuement.
-        oDoc = invApp.activeDocument
+        oDoc = invApp.ActiveDocument
 
         ' Save a copy as a PDF file.
-        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".pdf", True)
+        Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + "_rev." + revision + ".pdf", True)
 
         ' Save a copy as a jpeg file.
         'Call oDoc.SaveAsBitmap("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
