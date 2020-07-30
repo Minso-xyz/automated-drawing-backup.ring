@@ -355,8 +355,8 @@ Public Class Form1
 
         oCell1.Text = comboBox_revision.Text    ' Revision N°
 
-        If oCell1.Text = "0" Then                    ' Description (If Revision N° is "0", assign "Drawing Issue"
-            oCell2.Text =  "Drawing Issue"
+        If oCell1.Text = "0" Or oCell1.Text = "" Then                    ' Description (If Revision N° is "0", assign "Drawing Issue"
+            oCell2.Text = "Drawing Issue"
         Else
             oCell2.Text = textbox_description.Text
         End If
