@@ -353,7 +353,11 @@ Public Class Form1
 
         Dim oggi As Date = Date.Today   ' Date
 
-        oCell1.Text = comboBox_revision.Text    ' Revision N°
+        If comboBox_revision.Text = "0" Or comboBox_revision.Text = "" Then
+            oCell1.Text = "0"
+        Else
+            oCell1.Text = comboBox_revision.Text    ' Revision N°
+        End If
 
         If oCell1.Text = "0" Or oCell1.Text = "" Then                    ' Description (If Revision N° is "0", assign "Drawing Issue"
             oCell2.Text = "Drawing Issue"
