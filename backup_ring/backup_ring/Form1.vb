@@ -220,7 +220,7 @@ Public Class Form1
 
         ' ##### Add revision N° in each exported file name (Except Rev.0)
         Dim revision As String
-        If comboBox_revision.Text = "0" Then
+        If comboBox_revision.Text = "0" Or comboBox_revision.Text = "" Then
             revision = ""
         Else
             revision = "_rev." + comboBox_revision.Text

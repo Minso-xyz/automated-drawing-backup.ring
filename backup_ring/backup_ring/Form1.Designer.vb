@@ -137,7 +137,7 @@ Partial Class Form1
         '
         'button_ok
         '
-        Me.button_ok.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.button_ok.BackColor = System.Drawing.SystemColors.ButtonFace
         Me.button_ok.Location = New System.Drawing.Point(154, 327)
         Me.button_ok.Margin = New System.Windows.Forms.Padding(2)
         Me.button_ok.Name = "button_ok"
@@ -270,9 +270,9 @@ Partial Class Form1
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(14, 273)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(66, 13)
+        Me.Label6.Size = New System.Drawing.Size(70, 13)
         Me.Label6.TabIndex = 29
-        Me.Label6.Text = "Description :"
+        Me.Label6.Text = "Modification :"
         '
         'textbox_description
         '
