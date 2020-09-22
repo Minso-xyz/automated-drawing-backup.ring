@@ -28,6 +28,36 @@ Public Class Form1
         End If
     End Sub
 
+    ' Zoom to fit the sheet within the view
+    Public Sub SaveAsJPG(oPath As String, oWidth As Integer)
+        Dim oDoc As DrawingDocument = invApp.ActiveDocument
+        Dim oSheet As Sheet = oDoc.ActiveSheet
+        Dim oView As Inventor.View = invApp.ActiveView
+        Dim dAspectRatio As Double = oSheet.Height / oSheet.Width
+
+        ' Adjust the aspect ratio of the view to match that of the sheet
+        oView.Height = oView.Width * dAspectRatio
+        Dim oCamera As Camera = oView.Camera
+
+        ' Center the sheet to the view
+        oCamera.Fit()
+
+        ' Zoom to fit the sheet exactly within the view
+        ' Add some tolerance to make sure the sheet borders are contained
+        oCamera.SetExtents(oSheet.Width * 1.003, oSheet.Height * 1.003)
+
+        ' Apply changes to the camera
+        oCamera.Apply()
+
+        ' Save view to jpg. Make sure that the aspect ratio is maintained when exporting
+        oView.SaveAsBitmap(oPath, oWidth, oWidth * dAspectRatio)
+
+        ' Restore the view
+        oCamera.Fit()
+        oCamera.Apply()
+        'oView.WindowState = kMaximize
+    End Sub
+
     Public Sub button_ok_Click(sender As Object, e As EventArgs) Handles button_ok.Click
         '##### Get the values from textbox and store as variable (Double)'
         internalDiameter = textbox_internalDiameter.Text
@@ -240,21 +270,21 @@ Public Class Form1
         oViewA = oDoc.ActiveSheet.DrawingViews.Item(1)
         If textbox_externalDiameter.Text < 100 Then
             oViewA.[Scale] = 0.8
-        ElseIf textbox_externalDiameter.Text >= 100 And textbox_externalDiameter.Text < 150 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 100 And textbox_externalDiameter.Text < 150 Then   
             oViewA.[Scale] = 0.7
-        ElseIf textbox_externalDiameter.Text >= 150 And textbox_externalDiameter.Text < 200 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 150 And textbox_externalDiameter.Text < 200 Then  
             oViewA.[Scale] = 0.65
-        ElseIf textbox_externalDiameter.Text >= 200 And textbox_externalDiameter.Text < 250 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 200 And textbox_externalDiameter.Text < 250 Then   
             oViewA.[Scale] = 0.6
-        ElseIf textbox_externalDiameter.Text >= 250 And textbox_externalDiameter.Text < 300 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 250 And textbox_externalDiameter.Text < 300 Then  
             oViewA.[Scale] = 0.55
-        ElseIf textbox_externalDiameter.Text >= 300 And textbox_externalDiameter.Text < 350 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 300 And textbox_externalDiameter.Text < 350 Then   
             oViewA.[Scale] = 0.45
-        ElseIf textbox_externalDiameter.Text >= 350 And textbox_externalDiameter.Text < 400 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 350 And textbox_externalDiameter.Text < 400 Then  
             oViewA.[Scale] = 0.4
-        ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 450 Then   ' #Verified
+        ElseIf textbox_externalDiameter.Text >= 400 And textbox_externalDiameter.Text < 450 Then   
             oViewA.[Scale] = 0.35
-        ElseIf textbox_externalDiameter.Text >= 450 And textbox_externalDiameter.Text < 500 Then   ' 
+        ElseIf textbox_externalDiameter.Text >= 450 And textbox_externalDiameter.Text < 500 Then   
             oViewA.[Scale] = 0.3
         ElseIf textbox_externalDiameter.Text >= 500 And textbox_externalDiameter.Text < 550 Then
             oViewA.[Scale] = 0.25
@@ -382,11 +412,8 @@ Public Class Form1
         ' Save a copy as a PDF file.
         Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + revision + ".pdf", True)
 
-        ' Save a copy as a jpeg file.
-        'Call oDoc.SaveAsBitmap("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", 2303, 3258)
-        'Call oDoc.SaveAs("\\dataserver2019\Tecnici\CARCO\DISEGNI\TORNITURA+MODIFICHE\" + drawingNumber + ".jpg", True)
-
-        'SaveAsJPG("C:\Users\minso\Documents\Drawings", 3000)
+        ' Save a copy as a jpg file.
+        Call SaveAsJPG("\\SERVER2008\comune carco\ARCHIVIO LAV FUORI STD\Disegni Commesse QP\" & drawingNumber + revision + ".jpg", 2303)
 
         'Finishing message
         'IF SPLIT = True, ADD COLLAUDO DIMENSION INFO HERE
